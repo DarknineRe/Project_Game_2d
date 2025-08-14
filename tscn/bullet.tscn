@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj3qwyjxcjom"]
+
+[ext_resource type="Script" uid="uid://bjepiwx77iyfv" path="res://Scripts/bullet.gd" id="1_i77r0"]
+[ext_resource type="Texture2D" uid="uid://bnjm2tdy0sqx4" path="res://Art/weapon/bullet.png" id="1_lgrp4"]
+[ext_resource type="Script" uid="uid://bv1oeapcr5rb1" path="res://Scripts/hurtbox.gd" id="2_ari5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ari5w"]
+radius = 16.0312
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ari5w"]
+atlas = ExtResource("1_lgrp4")
+region = Rect2(0, 0, 640, 400)
+
+[node name="Bullet" type="CharacterBody2D" node_paths=PackedStringArray("hurtbox")]
+z_index = 1
+scale = Vector2(3, 3)
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_i77r0")
+hurtbox = NodePath("BulletHurtbox")
+
+[node name="Floor Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ari5w")
+
+[node name="BulletHurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("2_ari5w")
+metadata/_custom_type_script = "uid://bv1oeapcr5rb1"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BulletHurtbox"]
+polygon = PackedVector2Array(-14, 0, -12, 0, -13, 1, -11, 1, -2, 4, 6, -2, -5, -7, -2, -9, 5, -9, 16, 0, 10, 10, -4, 10, -14, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ari5w")
+region_enabled = true
+region_rect = Rect2(446.424, 226.909, 34.3854, 23.504)
+
+[connection signal="hit_enemy" from="BulletHurtbox" to="." method="on_enemy_hit"]
