@@ -1,0 +1,13 @@
+make item.tscn
+
+item will be random from sword and gun pool
+
+when pick will send item data to user
+
+#
+func shoot(global_pos, global_rot):
+	var bullet = bullet_type.instantiate()
+	bullet.position = global_pos
+	bullet.rotation = global_rot
+	
+	get_tree().current_scene.add_child(bullet)

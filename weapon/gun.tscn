@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfpls2jan6c6y"]
+
+[ext_resource type="Script" uid="uid://cvpltik0au1mi" path="res://weapon/gun.gd" id="1_168on"]
+[ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="2_3ikfk"]
+
+[node name="Gun" type="Node2D"]
+script = ExtResource("1_168on")
+bullet_speed = null
+bullet_lifetime = null
+knockback_force = null
+stun_time = null
+max_pierce = null
+fire_rate = null
+name = &"Gun"
+damage = null
+cooldown = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3ikfk")
