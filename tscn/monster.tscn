@@ -1,17 +1,21 @@
 [gd_scene load_steps=23 format=3 uid="uid://dm2rel6cgvfwv"]
 
-[ext_resource type="Script" uid="uid://si38pcrhe850" path="res://Scripts/monster.gd" id="1_mrqeg"]
+[ext_resource type="Script" uid="uid://si38pcrhe850" path="res://objects/monster/monster.gd" id="1_mrqeg"]
 [ext_resource type="Texture2D" uid="uid://cmmo4y7pjkjor" path="res://Art/Character/Enemy/Knight/Soldier.png" id="2_mak2h"]
-[ext_resource type="Script" uid="uid://bjv1jeys0wqgg" path="res://Scripts/hitbox.gd" id="2_v4wv7"]
-[ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/health.gd" id="4_col0u"]
-[ext_resource type="PackedScene" uid="uid://c18522k280og1" path="res://tscn/hpbar.tscn" id="5_mak2h"]
-[ext_resource type="Script" uid="uid://dcb5cmaa8ju5d" path="res://Scripts/monster_animation.gd" id="6_kib7l"]
-[ext_resource type="Script" uid="uid://dfenop2klq68" path="res://tscn/monster_state_machine.gd" id="7_kib7l"]
-[ext_resource type="Script" uid="uid://c83sjclc1sfwx" path="res://tscn/idle.gd" id="8_akcy7"]
-[ext_resource type="Script" uid="uid://niyt4j1nksp3" path="res://tscn/chase.gd" id="9_wq6hg"]
-[ext_resource type="Script" uid="uid://d1vuobtu303u7" path="res://tscn/stun.gd" id="10_a2b7y"]
-[ext_resource type="Script" uid="uid://j85pxuxblc12" path="res://tscn/attack.gd" id="11_a2b7y"]
-[ext_resource type="Script" uid="uid://07g78ayrit7i" path="res://tscn/death.gd" id="12_y3pn2"]
+[ext_resource type="Script" uid="uid://bjv1jeys0wqgg" path="res://Scripts/extendables/hitbox.gd" id="2_v4wv7"]
+[ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/extendables/health.gd" id="4_col0u"]
+[ext_resource type="PackedScene" uid="uid://c18522k280og1" path="res://UI/HP bar/hpbar.tscn" id="5_mak2h"]
+[ext_resource type="Script" uid="uid://dcb5cmaa8ju5d" path="res://objects/monster/monster_animation.gd" id="6_kib7l"]
+[ext_resource type="Script" uid="uid://dfenop2klq68" path="res://Scripts/state/monster_state_machine.gd" id="7_kib7l"]
+[ext_resource type="Script" uid="uid://c83sjclc1sfwx" path="res://Scripts/state/enemy state/idle.gd" id="8_akcy7"]
+[ext_resource type="Script" uid="uid://niyt4j1nksp3" path="res://Scripts/state/enemy state/chase.gd" id="9_wq6hg"]
+[ext_resource type="Script" uid="uid://d1vuobtu303u7" path="res://Scripts/state/stun.gd" id="10_a2b7y"]
+[ext_resource type="Script" uid="uid://j85pxuxblc12" path="res://Scripts/state/enemy state/attack.gd" id="11_a2b7y"]
+[ext_resource type="Script" uid="uid://07g78ayrit7i" path="res://Scripts/state/enemy state/death.gd" id="12_y3pn2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v4wv7"]
+radius = 4.0
+height = 20.0
 
 [sub_resource type="Animation" id="Animation_wq6hg"]
 length = 0.001
@@ -42,7 +46,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../floor collision:position")
+tracks/2/path = NodePath("../CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +58,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../floor collision:rotation")
+tracks/3/path = NodePath("../CollisionShape2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,6 +66,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.5708]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Monster_HurtboxArea/Hurtbox:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_akcy7"]
@@ -108,7 +124,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../floor collision:position")
+tracks/1/path = NodePath("../CollisionShape2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -120,7 +136,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../floor collision:rotation")
+tracks/2/path = NodePath("../CollisionShape2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -132,7 +148,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../floor collision:disabled")
+tracks/3/path = NodePath("../CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -144,11 +160,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Monster_HitboxArea/Hurtbox:disabled")
+tracks/4/path = NodePath("../Monster_HurtboxArea/Hurtbox:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.0333333, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, true]
@@ -209,15 +225,11 @@ _data = {
 &"walk": SubResource("Animation_kib7l")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v4wv7"]
-radius = 4.0
-height = 20.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_y3pn2"]
 radius = 23.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga5te"]
-size = Vector2(24, 28.5)
+size = Vector2(28.3333, 40.5833)
 
 [node name="Monster" type="CharacterBody2D" groups=["Monster"]]
 z_index = 1
@@ -225,8 +237,13 @@ scale = Vector2(3, 3)
 collision_layer = 4
 collision_mask = 196
 script = ExtResource("1_mrqeg")
-attack_range = 100.0
-detection_radius = 500.0
+detection_radius = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Monster"]]
+position = Vector2(0, 12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_v4wv7")
+disabled = true
 
 [node name="KnightBody" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -241,29 +258,23 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="floor collision" type="CollisionShape2D" parent="." groups=["Monster"]]
-position = Vector2(0, 12)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_v4wv7")
-
 [node name="attack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack"]
 shape = SubResource("CircleShape2D_y3pn2")
 disabled = true
 
-[node name="Monster_HitboxArea" type="Area2D" parent="." groups=["Monster"]]
+[node name="Monster_HurtboxArea" type="Area2D" parent="." groups=["Monster"]]
 collision_layer = 128
 script = ExtResource("2_v4wv7")
 
-[node name="Hurtbox" type="CollisionShape2D" parent="Monster_HitboxArea" groups=["Monster"]]
-position = Vector2(0, 2.75)
+[node name="Hurtbox" type="CollisionShape2D" parent="Monster_HurtboxArea" groups=["Monster"]]
+position = Vector2(-0.333333, -3.375)
 shape = SubResource("RectangleShape2D_ga5te")
 
-[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hitbox", "hpbar")]
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hitbox")]
 script = ExtResource("4_col0u")
-hitbox = NodePath("../Monster_HitboxArea")
-hpbar = NodePath("../Hpbar")
+hitbox = NodePath("../Monster_HurtboxArea")
 
 [node name="Monster_Animation" type="Node" parent="." node_paths=PackedStringArray("anim", "sprite")]
 script = ExtResource("6_kib7l")
@@ -304,5 +315,5 @@ script = ExtResource("12_y3pn2")
 metadata/_custom_type_script = "uid://cxqn24exvp8cj"
 
 [connection signal="area_entered" from="attack" to="MonsterStateMachine/Attack" method="attack_hit"]
-[connection signal="damaged" from="Monster_HitboxArea" to="." method="on_damaged"]
-[connection signal="damaged" from="Monster_HitboxArea" to="Health" method="on_damaged"]
+[connection signal="damaged" from="Monster_HurtboxArea" to="." method="on_damaged"]
+[connection signal="damaged" from="Monster_HurtboxArea" to="Health" method="on_damaged"]
