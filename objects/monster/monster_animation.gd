@@ -10,7 +10,6 @@ func _physics_process(_delta: float) -> void:
 		monster.hp_bar.hide()
 		anim.play("death")
 		await anim.animation_finished
-		await get_tree().create_timer(10).timeout
 		return
 	
 	var is_idle = monster.velocity.length() == 0

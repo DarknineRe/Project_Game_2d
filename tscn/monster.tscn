@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dfenop2klq68" path="res://Scripts/state/monster_state_machine.gd" id="7_kib7l"]
 [ext_resource type="Script" uid="uid://c83sjclc1sfwx" path="res://Scripts/state/enemy state/idle.gd" id="8_akcy7"]
 [ext_resource type="Script" uid="uid://niyt4j1nksp3" path="res://Scripts/state/enemy state/chase.gd" id="9_wq6hg"]
-[ext_resource type="Script" uid="uid://d1vuobtu303u7" path="res://Scripts/state/stun.gd" id="10_a2b7y"]
+[ext_resource type="Script" uid="uid://d1vuobtu303u7" path="res://Scripts/state/enemy state/stun.gd" id="10_a2b7y"]
 [ext_resource type="Script" uid="uid://j85pxuxblc12" path="res://Scripts/state/enemy state/attack.gd" id="11_a2b7y"]
 [ext_resource type="Script" uid="uid://07g78ayrit7i" path="res://Scripts/state/enemy state/death.gd" id="12_y3pn2"]
 
@@ -237,7 +237,6 @@ scale = Vector2(3, 3)
 collision_layer = 4
 collision_mask = 196
 script = ExtResource("1_mrqeg")
-detection_radius = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Monster"]]
 position = Vector2(0, 12)

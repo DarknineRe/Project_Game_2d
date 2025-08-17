@@ -48,7 +48,7 @@ func exit():
 
 # Attempts to switch to chase state if it detects the player
 func try_chase() -> bool:
-	if get_distance_to_player() <= enemy.detection_radius:
+	if get_distance_to_player() <= enemy.chase_radius:
 		transitioned.emit(self, "chase")
 		return true
 	

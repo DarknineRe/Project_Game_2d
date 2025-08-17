@@ -27,7 +27,6 @@ func _process(_delta: float) -> void:
 	
 	#if flip_when_left:
 	gun_sprite.flip_v = (cos(global_rotation) < 0)
-	
 	if Input.is_action_just_pressed("fire") and can_shoot:
 		use_weapon(global_position)
 		pass
@@ -35,11 +34,14 @@ func _process(_delta: float) -> void:
 func use_weapon(direction: Vector2):
 	if weapon is Gun:
 		shoot_bullet(weapon, direction)
+		can_shoot = false
+		start_fire_cooldown(weapon.fire_rate)
 	
 
-func shoot_bullet(gun: Gun, direction: Vector2):
+func shoot_bullet(gun: Gun, _direction: Vector2):
 	var bullet = gun.bullet_type.instantiate()
-	bullet.position = global_position
+	var spawn_offset := Vector2.RIGHT.rotated(global_rotation) * 140
+	bullet.position = global_position + spawn_offset
 	bullet.rotation = global_rotation
 	bullet.damage = gun.damage
 	bullet.speed = gun.bullet_speed
@@ -47,3 +49,7 @@ func shoot_bullet(gun: Gun, direction: Vector2):
 	bullet.max_pierce = gun.max_pierce
 	bullet.fire_rate = gun.fire_rate
 	get_tree().current_scene.add_child(bullet)
+	
+func start_fire_cooldown(rate: float) -> void:
+	await get_tree().create_timer(rate).timeout
+	can_shoot = true

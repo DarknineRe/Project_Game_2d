@@ -4,7 +4,6 @@ signal damaged(attack: Attack)
 @export var chase_radius := 1000.0
 @export var chase_speed := 100.0
 @export var attack_range := 75.0
-@export var detection_radius := 100.0
 @export var follow_radius := 25.0
 var is_attacking := false
 var alive := true

@@ -44,7 +44,6 @@ func spawn_monster_near_player() -> void:
 	var monster = monster_scene.instantiate()
 	monster.position = spawn_pos
 	add_child(monster)
-	print(get_monster_count())
 
 	# Remove the spawn mark
 	spawn_mark.queue_free()

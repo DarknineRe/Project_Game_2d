@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var line := $Line2D
 
-var beam_width = damage*0.05 + max_pierce*2
+var beam_width = damage*0.5 + max_pierce*2
 var beam_range = speed
 
 func _ready():
