@@ -5,15 +5,6 @@
 
 [node name="Gun" type="Node2D"]
 script = ExtResource("1_168on")
-bullet_speed = null
-bullet_lifetime = null
-knockback_force = null
-stun_time = null
-max_pierce = null
-fire_rate = null
-name = &"Gun"
-damage = null
-cooldown = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_3ikfk")

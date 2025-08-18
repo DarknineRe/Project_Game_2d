@@ -14,6 +14,7 @@ var can_shoot := true
 
 func _ready() -> void:
 	gun_sprite.position = sprite_offset
+	gun_sprite.texture = sprite
 
 func _process(_delta: float) -> void:
 	if not player:
@@ -29,7 +30,7 @@ func _process(_delta: float) -> void:
 	gun_sprite.flip_v = (cos(global_rotation) < 0)
 	
 	if Input.is_action_just_pressed("fire") and can_shoot:
-		use_weapon(global_position)
+		use_weapon(gun_sprite.global_position)
 		pass
 
 func use_weapon(direction: Vector2):
@@ -39,11 +40,12 @@ func use_weapon(direction: Vector2):
 
 func shoot_bullet(gun: Gun, direction: Vector2):
 	var bullet = gun.bullet_type.instantiate()
-	bullet.position = global_position
+	bullet.set_bullet_stat(gun.bullet_speed,gun.bullet_lifetime,
+	gun.damage,gun.max_pierce,gun.fire_rate,)
+	bullet.position = direction
 	bullet.rotation = global_rotation
-	bullet.damage = gun.damage
-	bullet.speed = gun.bullet_speed
-	bullet.lifetime = gun.bullet_lifetime
-	bullet.max_pierce = gun.max_pierce
-	bullet.fire_rate = gun.fire_rate
+	
+	for strategy in player.upgrades:
+		strategy.apply_upgrade(bullet)
+		
 	get_tree().current_scene.add_child(bullet)

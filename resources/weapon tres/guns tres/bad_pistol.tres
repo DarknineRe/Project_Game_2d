@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("1_ff0rw")
-bullet_speed = 500.0
+bullet_speed = 800.0
 bullet_lifetime = 2.0
 knockback_force = 200.0
 max_pierce = 1

@@ -1,16 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://c10gddmdv1ri7"]
+[gd_scene load_steps=4 format=3 uid="uid://c10gddmdv1ri7"]
 
 [ext_resource type="Script" uid="uid://c6i66xyfohnf2" path="res://weapon/bullet type/laser bullet/laser_bullet_type.gd" id="1_4o7q5"]
 
-[node name="LaserBulletType" type="Node2D"]
+[sub_resource type="Gradient" id="Gradient_47yix"]
+colors = PackedColorArray(0.403551, 0.527693, 0.886626, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ep3ru"]
+gradient = SubResource("Gradient_47yix")
+
+[node name="LaserBullet" type="Node2D"]
 script = ExtResource("1_4o7q5")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-enabled = false
-target_position = Vector2(5, 0)
-collision_mask = 128
-collide_with_areas = true
-collide_with_bodies = false
-
 [node name="Line2D" type="Line2D" parent="."]
-default_color = Color(1, 0, 0, 1)
+default_color = Color(0.117552, 0.573539, 0.805703, 1)
+texture = SubResource("GradientTexture2D_ep3ru")

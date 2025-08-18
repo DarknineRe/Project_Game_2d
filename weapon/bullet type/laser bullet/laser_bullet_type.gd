@@ -1,29 +1,22 @@
 class_name LaserBulletType
-extends Node2D
-
-@export var speed: float = 800.0
-@export var lifetime: float = 2.0
-@export var damage := 1.0
-@export var max_pierce := 1
-@export var fire_rate := 0.1
-
+extends Bullet
 
 @onready var line := $Line2D
 
-var beam_width = damage*0.05 + max_pierce*2
-var beam_range = speed
+
 
 func _ready():
 	
-	line.width = beam_width
+	line.width = get_beam_width()
+	line.clear_points()
 	line.add_point(Vector2.ZERO)
-	line.add_point(Vector2.RIGHT * beam_range)
+	line.add_point(Vector2.RIGHT * get_beam_range())
 	
 	# Use physics space to detect all overlapping enemies
 	var space_state = get_world_2d().direct_space_state
 	var query = PhysicsRayQueryParameters2D.create(
 		global_position,
-		global_position + Vector2.RIGHT.rotated(rotation) * beam_range)
+		global_position + Vector2.RIGHT.rotated(rotation) * get_beam_range())
 	query.collide_with_areas = true  # Important for Hitbox detection
 	
 	var result = space_state.intersect_ray(query)
@@ -43,3 +36,9 @@ func _ready():
 	
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
+	
+func get_beam_width() -> float:
+	return damage * 0.1 + max_pierce * 2
+
+func get_beam_range() -> float:
+	return speed

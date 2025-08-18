@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c18522k280og1" path="res://UI/HP bar/hpbar.tscn" id="5_6sl1v"]
 [ext_resource type="Script" uid="uid://c8fw85qg2q36r" path="res://UI/Stamina bar/stamina_bar.gd" id="10_wxvsy"]
 [ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/extendables/health.gd" id="13_t3r7j"]
-[ext_resource type="Resource" uid="uid://63cumtlypqu" path="res://resources/weapon tres/guns tres/bad_pistol.tres" id="14_42mp7"]
+[ext_resource type="Resource" uid="uid://e52j04giljg4" path="res://resources/weapon tres/guns tres/Arbitrator.tres" id="14_42mp7"]
 [ext_resource type="Script" uid="uid://31n4kh4rea4o" path="res://Scripts/player/playercam.gd" id="14_h6470"]
 [ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="15_42mp7"]
 [ext_resource type="PackedScene" uid="uid://bl5cwid2efhm5" path="res://UI/EXP bar/exp_bar.tscn" id="15_ovgu5"]
@@ -81,7 +81,6 @@ atlas = ExtResource("1_7omxl")
 region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_88mv1"]
-load_path = "res://.godot/imported/idle_sword.png-644c2d513b21dcaffc213f7d42489e68.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rfryb"]
 atlas = SubResource("CompressedTexture2D_88mv1")
@@ -132,7 +131,6 @@ atlas = ExtResource("2_3c7ea")
 region = Rect2(560, 80, 80, 80)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_42mp7"]
-load_path = "res://.godot/imported/run_sword.png-21b694f5997ec5d91cebdad747dc5d8a.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b30y7"]
 atlas = SubResource("CompressedTexture2D_42mp7")
@@ -627,6 +625,7 @@ target = NodePath("..")
 [node name="WeaponPivot" type="Node2D" parent="."]
 script = ExtResource("16_ovgu5")
 weapon = ExtResource("14_42mp7")
+sprite_offset = Vector2(8, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
 position = Vector2(14, 1)

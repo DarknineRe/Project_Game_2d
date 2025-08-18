@@ -1099,12 +1099,10 @@ tile_set = SubResource("TileSet_2bu33")
 [node name="upgrade" parent="Node2D" instance=ExtResource("7_oedh5")]
 position = Vector2(-133, -205)
 bullet_upgrade = SubResource("Resource_oedh5")
-needs_update = false
 
 [node name="upgrade2" parent="Node2D" instance=ExtResource("7_oedh5")]
 position = Vector2(-324, -205)
 bullet_upgrade = ExtResource("10_qffdj")
-needs_update = false
 
 [node name="Monster" parent="." instance=ExtResource("5_mkpxm")]
 position = Vector2(-514, 74)
