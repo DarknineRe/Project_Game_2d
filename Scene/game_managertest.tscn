@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://folrj6xulyuc"]
+[gd_scene load_steps=10 format=4 uid="uid://folrj6xulyuc"]
 
 [ext_resource type="Script" uid="uid://d2mqa5c7yjtbh" path="res://Scripts/game_manager.gd" id="1_56epn"]
 [ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://Scene/player.tscn" id="2_r02f3"]
 [ext_resource type="PackedScene" uid="uid://dm2rel6cgvfwv" path="res://Scene/monster.tscn" id="3_f0eib"]
 [ext_resource type="Texture2D" uid="uid://chm637onughti" path="res://Art/Background/BackGround.png" id="5_871w7"]
 [ext_resource type="Texture2D" uid="uid://cj62c7hcyj7f4" path="res://Art/Background/RPGpack_vector.svg" id="7_f0eib"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r02f3"]
-size = Vector2(307, 283)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0eib"]
 resource_name = "bg_deco"
@@ -688,22 +685,11 @@ metadata/_edit_horizontal_guides_ = [21017.0]
 
 [node name="Baan" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Baan"]
-
-[node name="4" type="Sprite2D" parent="Baan/StaticBody2D"]
-position = Vector2(8.5, -299)
-scale = Vector2(2, 2)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Baan/StaticBody2D"]
-position = Vector2(9.5, -290.5)
-shape = SubResource("RectangleShape2D_r02f3")
-
 [node name="spawnpoint" type="Marker2D" parent="."]
 
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("2_r02f3")]
 z_index = 1
 position = Vector2(-2.27374e-13, 1.81899e-12)
-scale = Vector2(6, 6)
 spawn_point = NodePath("../spawnpoint")
 
 [node name="Monster" parent="." instance=ExtResource("3_f0eib")]
