@@ -19,7 +19,6 @@ scale = Vector2(5, 5)
 script = ExtResource("1_qcylm")
 sprite = NodePath("UpgradeSprite")
 bullet_upgrade = SubResource("Resource_5htlc")
-needs_update = true
 
 [node name="UpgradeSprite" type="Sprite2D" parent="."]
 z_index = 1
