@@ -14,6 +14,6 @@ bullet_type = ExtResource("1_p2nsa")
 name = "Arbitrator"
 damage = 99999.0
 crit_chance = 10.0
-crit_mult = 2.0
+crit_mult = 10.0
 texture = ExtResource("3_xo6ni")
 metadata/_custom_type_script = "uid://cvpltik0au1mi"
