@@ -28,6 +28,6 @@ func _physics_process(_delta: float) -> void:
 
 func on_damaged(attack: Attack) -> void:
 	hp_bar.show()
-	DamageNumbers.display_number(attack.damage,damage_number_position.global_position,false)
+	DamageNumbers.display_number(attack.damage,damage_number_position.global_position,attack.is_crit)
 	damaged.emit(attack)
 	

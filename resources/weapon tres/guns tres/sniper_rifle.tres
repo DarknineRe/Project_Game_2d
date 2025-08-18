@@ -8,11 +8,12 @@
 script = ExtResource("1_q161e")
 bullet_speed = 3000.0
 bullet_lifetime = 1.0
-knockback_force = 200.0
 max_pierce = 3
 fire_rate = 3.0
 bullet_type = ExtResource("1_3hd8l")
 name = "Sniper Rifle"
 damage = 99.0
+crit_chance = 35.0
+crit_mult = 2.0
 texture = ExtResource("3_6cwwe")
 metadata/_custom_type_script = "uid://cvpltik0au1mi"

@@ -8,11 +8,12 @@
 script = ExtResource("1_ff0rw")
 bullet_speed = 800.0
 bullet_lifetime = 2.0
-knockback_force = 200.0
 max_pierce = 1
 fire_rate = 0.1
 bullet_type = ExtResource("1_lbl34")
 name = "Bad Pistol"
 damage = 20.0
+crit_chance = 20.0
+crit_mult = 2.0
 texture = ExtResource("3_r8m11")
 metadata/_custom_type_script = "uid://cvpltik0au1mi"

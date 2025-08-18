@@ -42,7 +42,7 @@ func shoot_bullet(gun: Gun, direction: Vector2):
 	can_shoot = false
 	var bullet = gun.bullet_type.instantiate()
 	bullet.set_bullet_stat(gun.bullet_speed,gun.bullet_lifetime,
-	gun.damage,gun.max_pierce,gun.fire_rate,)
+	gun.damage,gun.max_pierce,gun.fire_rate,gun.crit_chance,gun.crit_mult)
 	bullet.position = direction
 	bullet.rotation = global_rotation
 	

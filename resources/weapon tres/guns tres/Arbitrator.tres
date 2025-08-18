@@ -8,11 +8,12 @@
 script = ExtResource("1_bvanp")
 bullet_speed = 400.0
 bullet_lifetime = 0.8
-knockback_force = 200.0
 max_pierce = 1
 fire_rate = 1.0
 bullet_type = ExtResource("1_p2nsa")
 name = "Arbitrator"
-damage = 50.0
+damage = 99999.0
+crit_chance = 10.0
+crit_mult = 2.0
 texture = ExtResource("3_xo6ni")
 metadata/_custom_type_script = "uid://cvpltik0au1mi"
