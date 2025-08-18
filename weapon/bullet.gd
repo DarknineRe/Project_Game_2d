@@ -18,6 +18,7 @@ func set_bullet_stat(speed_: float, lifetime_: float, damage_: float, max_pierce
 	fire_rate = fire_rate_
 	crit_chance = crit_chance_
 	crit_mult = crit_mult_
+	#TODO knockback
 	_on_stats_updated()  
 
 
