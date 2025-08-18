@@ -15,10 +15,12 @@ var upgrades : Array[BulletUpgrade] = []
 
 @export var spawn_point: Node2D
 @onready var health_node: Health = $Health
-@onready var hp_bar = $Hpbar
+@onready var hp_bar = $Camera2D/Hpbar
 @onready var anim = $Body
-@onready var exp_bar = $ExpBar
-
+@onready var exp_bar = $Camera2D/ExpBar
+func _ready() -> void:
+	hp_bar.init_health(health_node.max_health)
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var half_viewport = get_viewport_rect().size / 2.0
@@ -42,15 +44,9 @@ func _play_death_and_respawn() -> void:
 	global_position = spawn_point.global_position
 	alive = true
 	health_node.health = health_node.max_health
-	hp_bar._set_health(100)
+	hp_bar.init_health(health_node.max_health)
 	emit_signal("respawned")
 
 func on_damaged(attack: Attack) -> void:
 	stunned = true
 	damaged.emit(attack)
-
-#TODO Just make this shit in the exp.tscn twin
-func _on_player_hurtbox_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Exp"):
-		exp_bar.add_exp(area.experience)
-		area.queue_free()

@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dfenop2klq68" path="res://Scripts/state/monster_state_machine.gd" id="7_kib7l"]
 [ext_resource type="Script" uid="uid://c83sjclc1sfwx" path="res://Scripts/state/enemy state/idle.gd" id="8_akcy7"]
 [ext_resource type="Script" uid="uid://niyt4j1nksp3" path="res://Scripts/state/enemy state/chase.gd" id="9_wq6hg"]
-[ext_resource type="Script" uid="uid://d1vuobtu303u7" path="res://Scripts/state/enemy state/stun.gd" id="10_a2b7y"]
+[ext_resource type="Script" uid="uid://d1vuobtu303u7" path="res://Scripts/state/stun.gd" id="10_a2b7y"]
 [ext_resource type="Script" uid="uid://j85pxuxblc12" path="res://Scripts/state/enemy state/attack.gd" id="11_a2b7y"]
 [ext_resource type="Script" uid="uid://07g78ayrit7i" path="res://Scripts/state/enemy state/death.gd" id="12_y3pn2"]
 
@@ -312,6 +312,9 @@ metadata/_custom_type_script = "uid://cxqn24exvp8cj"
 [node name="Death" type="Node" parent="MonsterStateMachine"]
 script = ExtResource("12_y3pn2")
 metadata/_custom_type_script = "uid://cxqn24exvp8cj"
+
+[node name="DamageNumbersPosition" type="Node2D" parent="."]
+position = Vector2(-6.33333, -30.3333)
 
 [connection signal="area_entered" from="attack" to="MonsterStateMachine/Attack" method="attack_hit"]
 [connection signal="damaged" from="Monster_HurtboxArea" to="." method="on_damaged"]

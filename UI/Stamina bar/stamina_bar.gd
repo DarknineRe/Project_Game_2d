@@ -1,8 +1,6 @@
 class_name StaminaBar
 extends ProgressBar
 
-
-@export var iframe := false
 @export var timer2 := 1.0
 @export var StaminaNode : Movement
 

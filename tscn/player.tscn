@@ -557,6 +557,8 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
+position = Vector2(764, 396)
+scale = Vector2(6, 6)
 collision_mask = 128
 script = ExtResource("1_3c7ea")
 
@@ -570,39 +572,40 @@ shape = SubResource("RectangleShape2D_udxxx")
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(0.8, 0.8)
 limit_smoothed = true
-position_smoothing_enabled = true
 script = ExtResource("14_h6470")
 target = NodePath("..")
 
-[node name="ExpBar" parent="." instance=ExtResource("15_ovgu5")]
-offset_left = -36.0
-offset_top = -16.0
-offset_right = 684.0
-offset_bottom = 11.0
-scale = Vector2(0.1, 0.1)
-
-[node name="Hpbar" parent="." node_paths=PackedStringArray("HPnode") instance=ExtResource("5_6sl1v")]
+[node name="Hpbar" parent="Camera2D" node_paths=PackedStringArray("HPnode") instance=ExtResource("5_6sl1v")]
 z_index = 3
-offset_left = -12.576
-offset_top = -12.0
-offset_right = 492.424
-offset_bottom = 11.0
-scale = Vector2(0.05, 0.05)
-max_value = 70.0
-HPnode = NodePath("../Health")
+offset_left = -135.333
+offset_top = -75.1667
+offset_right = 369.667
+offset_bottom = -52.1667
+scale = Vector2(0.2, 0.2)
+HPnode = NodePath("../../Health")
 
-[node name="Staminabar" parent="." node_paths=PackedStringArray("StaminaNode") instance=ExtResource("5_6sl1v")]
+[node name="Staminabar" parent="Camera2D" node_paths=PackedStringArray("StaminaNode") instance=ExtResource("5_6sl1v")]
 z_index = 3
-offset_left = -12.576
-offset_top = -10.0
-offset_right = 492.424
-offset_bottom = 13.0
-scale = Vector2(0.05, 0.05)
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = -135.0
+offset_top = -66.1667
+offset_right = 370.0
+offset_bottom = -43.1667
+scale = Vector2(0.2, 0.2)
 theme_override_styles/background = SubResource("StyleBoxEmpty_kai0q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wxvsy")
 step = 1.0
 script = ExtResource("10_wxvsy")
-StaminaNode = NodePath("../Player_Movement")
+StaminaNode = NodePath("../../Player_Movement")
+
+[node name="ExpBar" parent="Camera2D" instance=ExtResource("15_ovgu5")]
+offset_left = -161.0
+offset_top = 78.0
+offset_right = 1448.0
+offset_bottom = 105.0
+scale = Vector2(0.2, 0.2)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(9.09493e-13, 6)
@@ -624,7 +627,7 @@ player = NodePath("..")
 [node name="Player_Movement" type="Node" parent="." node_paths=PackedStringArray("player", "stamina_bar")]
 script = ExtResource("3_udxxx")
 player = NodePath("..")
-stamina_bar = NodePath("../Staminabar")
+stamina_bar = NodePath("../Camera2D/Staminabar")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hitbox")]
 script = ExtResource("13_t3r7j")
@@ -642,4 +645,3 @@ texture = ExtResource("15_42mp7")
 [connection signal="area_entered" from="Player_HurtboxArea" to="." method="_on_player_hurtbox_area_area_entered"]
 [connection signal="damaged" from="Player_HurtboxArea" to="." method="on_damaged"]
 [connection signal="damaged" from="Player_HurtboxArea" to="Health" method="on_damaged"]
-[connection signal="health_changed" from="Health" to="Hpbar" method="ouch"]

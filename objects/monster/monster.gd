@@ -16,7 +16,7 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 @onready var hp_bar:= $Hpbar
 @onready var player: CharacterBody2D = null
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
-
+@onready var damage_number_position = $DamageNumbersPosition
 func _ready() -> void:
 	hp_bar.hide()
 
@@ -28,5 +28,6 @@ func _physics_process(_delta: float) -> void:
 
 func on_damaged(attack: Attack) -> void:
 	hp_bar.show()
+	DamageNumbers.display_number(attack.damage,damage_number_position.global_position,false)
 	damaged.emit(attack)
 	
