@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=4 uid="uid://folrj6xulyuc"]
 
 [ext_resource type="Script" uid="uid://d2mqa5c7yjtbh" path="res://Scripts/game_manager.gd" id="1_56epn"]
-[ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://tscn/player.tscn" id="2_r02f3"]
-[ext_resource type="PackedScene" uid="uid://dm2rel6cgvfwv" path="res://tscn/monster.tscn" id="3_f0eib"]
+[ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://Scene/player.tscn" id="2_r02f3"]
+[ext_resource type="PackedScene" uid="uid://dm2rel6cgvfwv" path="res://Scene/monster.tscn" id="3_f0eib"]
 [ext_resource type="Texture2D" uid="uid://chm637onughti" path="res://Art/Background/BackGround.png" id="5_871w7"]
 [ext_resource type="Texture2D" uid="uid://cj62c7hcyj7f4" path="res://Art/Background/RPGpack_vector.svg" id="7_f0eib"]
 

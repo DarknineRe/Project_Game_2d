@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg6x60vcrcov"
-path="res://.godot/imported/pistol.png-3c3e0127e179f770931be2f0147f6fc1.ctex"
+uid="uid://sjqvam1o5bjd"
+path="res://.godot/imported/Sprite_Arbitrator.webp-d92478354940f2996a4959877b852440.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/weapon/pistol.png"
-dest_files=["res://.godot/imported/pistol.png-3c3e0127e179f770931be2f0147f6fc1.ctex"]
+source_file="res://Art/weapon/Sprite_Arbitrator.webp"
+dest_files=["res://.godot/imported/Sprite_Arbitrator.webp-d92478354940f2996a4959877b852440.ctex"]
 
 [params]
 

@@ -1,3 +1,4 @@
+class_name DamageDisplay
 extends Node
 
 func display_number(value: float,position: Vector2, is_critical:bool):

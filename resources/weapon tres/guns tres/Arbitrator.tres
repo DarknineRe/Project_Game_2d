@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=4 format=3 uid="uid://08gqui53j6g2"]
+
+[ext_resource type="Script" uid="uid://cvpltik0au1mi" path="res://weapon/gun.gd" id="1_bvanp"]
+[ext_resource type="PackedScene" uid="uid://c10gddmdv1ri7" path="res://weapon/bullet type/laser bullet/laser_bullet_type.tscn" id="1_p2nsa"]
+[ext_resource type="Texture2D" uid="uid://sjqvam1o5bjd" path="res://Art/weapon/Sprite_Arbitrator.webp" id="3_xo6ni"]
+
+[resource]
+script = ExtResource("1_bvanp")
+bullet_speed = 400.0
+bullet_lifetime = 0.8
+knockback_force = 200.0
+max_pierce = 1
+fire_rate = 1.0
+bullet_type = ExtResource("1_p2nsa")
+name = "Arbitrator"
+damage = 50.0
+texture = ExtResource("3_xo6ni")
+metadata/_custom_type_script = "uid://cvpltik0au1mi"

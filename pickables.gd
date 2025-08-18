@@ -1,11 +1,11 @@
 @tool
-class_name UpgradeOrb
+class_name Pickup
 extends Area2D
 
-@export var sprite : Sprite2D
-@export var bullet_upgrade : BulletUpgrade:
+@onready var sprite = $Sprite2D
+@export var weapon : Weapon:
 	set(val):
-		bullet_upgrade = val
+		weapon = val
 		needs_update = true
 
 # Used when editing to denote that the sprite has changed and needs updating
@@ -14,18 +14,18 @@ extends Area2D
 
 func _ready() -> void:
 	body_entered.connect(on_body_entered)
-	sprite.texture = bullet_upgrade.texture
+	sprite.texture = weapon.texture
 
 
 func _process(_delta: float) -> void:
 	# This is run only when we're editing the scene
 	if Engine.is_editor_hint():
 		if needs_update:
-			sprite.texture = bullet_upgrade.texture
+			sprite.texture = weapon.texture
 			needs_update = false
 
 
 func on_body_entered(body: PhysicsBody2D):
 	if body is Player:
-		body.upgrades.append(bullet_upgrade)
+		body.weapon.equip(weapon)
 		queue_free()

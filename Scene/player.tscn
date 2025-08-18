@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://c18522k280og1" path="res://UI/HP bar/hpbar.tscn" id="5_6sl1v"]
 [ext_resource type="Script" uid="uid://c8fw85qg2q36r" path="res://UI/Stamina bar/stamina_bar.gd" id="10_wxvsy"]
 [ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/extendables/health.gd" id="13_t3r7j"]
-[ext_resource type="Resource" uid="uid://63cumtlypqu" path="res://resources/weapon tres/guns tres/bad_pistol.tres" id="14_42mp7"]
 [ext_resource type="Script" uid="uid://31n4kh4rea4o" path="res://Scripts/player/playercam.gd" id="14_h6470"]
 [ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="15_42mp7"]
+[ext_resource type="Resource" uid="uid://08gqui53j6g2" path="res://resources/weapon tres/guns tres/Arbitrator.tres" id="15_k4k6l"]
 [ext_resource type="PackedScene" uid="uid://bl5cwid2efhm5" path="res://UI/EXP bar/exp_bar.tscn" id="15_ovgu5"]
 [ext_resource type="Script" uid="uid://4a3dbneksigv" path="res://Scripts/player/WeaponPivot.gd" id="16_ovgu5"]
 
@@ -557,7 +557,6 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
-position = Vector2(764, 396)
 scale = Vector2(6, 6)
 collision_mask = 128
 script = ExtResource("1_3c7ea")
@@ -635,7 +634,7 @@ hitbox = NodePath("../Player_HurtboxArea")
 
 [node name="WeaponPivot" type="Node2D" parent="."]
 script = ExtResource("16_ovgu5")
-weapon = ExtResource("14_42mp7")
+weapon = ExtResource("15_k4k6l")
 
 [node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]
 position = Vector2(14, 1)

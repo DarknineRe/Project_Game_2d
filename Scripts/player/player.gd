@@ -12,12 +12,13 @@ var stunned = false #
 
 var upgrades : Array[BulletUpgrade] = []
 
-
 @export var spawn_point: Node2D
 @onready var health_node: Health = $Health
 @onready var hp_bar = $Camera2D/Hpbar
 @onready var anim = $Body
 @onready var exp_bar = $Camera2D/ExpBar
+@onready var weapon = $WeaponPivot
+
 func _ready() -> void:
 	hp_bar.init_health(health_node.max_health)
 	

@@ -5,7 +5,7 @@ extends Node2D
 #@export var sprite_scale := Vector2.ONE     
 #@export var flip_when_left := true  
   
-@onready var gun_sprite = $Sprite2D
+@onready var weapon_sprite = $Sprite2D
 @onready var sprite = weapon.texture
 @onready var player = get_owner()           
 
@@ -13,7 +13,8 @@ extends Node2D
 var can_shoot := true
 
 func _ready() -> void:
-	gun_sprite.position = sprite_offset
+	weapon_sprite.position = sprite_offset
+	weapon_sprite.texture = sprite
 
 func _process(_delta: float) -> void:
 	if not player:
@@ -26,30 +27,34 @@ func _process(_delta: float) -> void:
 	global_rotation = aim_vec.angle()
 	
 	#if flip_when_left:
-	gun_sprite.flip_v = (cos(global_rotation) < 0)
+	weapon_sprite.flip_v = (cos(global_rotation) < 0)
+	
 	if Input.is_action_just_pressed("fire") and can_shoot:
-		use_weapon(global_position)
+		use_weapon(weapon_sprite.global_position)
 		pass
 
 func use_weapon(direction: Vector2):
 	if weapon is Gun:
 		shoot_bullet(weapon, direction)
-		can_shoot = false
-		start_fire_cooldown(weapon.fire_rate)
 	
 
-func shoot_bullet(gun: Gun, _direction: Vector2):
+func shoot_bullet(gun: Gun, direction: Vector2):
+	can_shoot = false
 	var bullet = gun.bullet_type.instantiate()
-	var spawn_offset := Vector2.RIGHT.rotated(global_rotation) * 140
-	bullet.position = global_position + spawn_offset
+	bullet.set_bullet_stat(gun.bullet_speed,gun.bullet_lifetime,
+	gun.damage,gun.max_pierce,gun.fire_rate,)
+	bullet.position = direction
 	bullet.rotation = global_rotation
-	bullet.damage = gun.damage
-	bullet.speed = gun.bullet_speed
-	bullet.lifetime = gun.bullet_lifetime
-	bullet.max_pierce = gun.max_pierce
-	bullet.fire_rate = gun.fire_rate
+	
+	for strategy in player.upgrades:
+		strategy.apply_upgrade(bullet)
+		
 	get_tree().current_scene.add_child(bullet)
 	
-func start_fire_cooldown(rate: float) -> void:
-	await get_tree().create_timer(rate).timeout
+	await get_tree().create_timer(gun.fire_rate).timeout
 	can_shoot = true
+	
+
+func equip(new_weapon : Weapon):
+	weapon = new_weapon
+	weapon_sprite.texture = new_weapon.texture

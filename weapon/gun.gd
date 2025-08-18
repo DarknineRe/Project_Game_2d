@@ -6,4 +6,5 @@ extends Weapon
 @export var knockback_force: float = 200.0
 @export var max_pierce: int = 1
 @export var fire_rate: float = 0.1
-@export var bullet_type: PackedScene
+
+@export var bullet_type: PackedScene 

@@ -3,8 +3,8 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var spawnpoint: Node2D = $spawnpoint
 
-@export var monster_scene: PackedScene = preload("res://tscn/monster.tscn")
-@export var spawn_mark_scene: PackedScene = preload("res://tscn/spawn_mark.tscn")
+@export var monster_scene: PackedScene = preload("res://scene/monster.tscn")
+@export var spawn_mark_scene: PackedScene = preload("res://scene/spawn_mark.tscn")
 @export var spawn_radius: float = 1000.0
 @export var min_spawn_distance: float = 100.0
 @export var spawn_interval: float = 3.0

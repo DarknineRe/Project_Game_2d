@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqv7oss5g7pvb"]
+[gd_scene load_steps=7 format=3 uid="uid://cqv7oss5g7pvb"]
 
 [ext_resource type="Script" uid="uid://b0eqmdeie16u8" path="res://objects/upgrade/upgrade.gd" id="1_qcylm"]
 [ext_resource type="Script" uid="uid://iaj127mpv0x7" path="res://objects/upgrade/bullet_upgrade.gd" id="2_dt60i"]
@@ -6,6 +6,9 @@
 [sub_resource type="Resource" id="Resource_5htlc"]
 script = ExtResource("2_dt60i")
 metadata/_custom_type_script = "uid://iaj127mpv0x7"
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n7i5d"]
+size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5htlc"]
 radius = 9.0
@@ -19,10 +22,10 @@ scale = Vector2(5, 5)
 script = ExtResource("1_qcylm")
 sprite = NodePath("UpgradeSprite")
 bullet_upgrade = SubResource("Resource_5htlc")
-needs_update = true
 
 [node name="UpgradeSprite" type="Sprite2D" parent="."]
 z_index = 1
+texture = SubResource("PlaceholderTexture2D_n7i5d")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_5htlc")
