@@ -27,6 +27,13 @@ func _ready():
 		if result.collider is Hitbox and not hit_enemies.has(result.collider):
 			var attack := Attack.new()
 			attack.damage = damage
+			
+			if randf() <= crit_chance/100:
+				attack.is_crit = true
+				attack.damage *= crit_mult
+			else:
+				attack.is_crit = false
+			
 			result.collider.damage(attack)
 			hit_enemies.append(result.collider)
 		

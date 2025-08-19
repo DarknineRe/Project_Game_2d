@@ -633,6 +633,7 @@ script = ExtResource("13_t3r7j")
 hitbox = NodePath("../Player_HurtboxArea")
 
 [node name="WeaponPivot" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("16_ovgu5")
 weapon = ExtResource("15_k4k6l")
 sprite_offset = Vector2(10, 0)
