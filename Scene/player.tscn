@@ -607,6 +607,7 @@ shape = SubResource("RectangleShape2D_udxxx")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(0.8, 0.8)
+limit_smoothed = true
 script = ExtResource("14_h6470")
 target = NodePath("..")
 
@@ -658,16 +659,19 @@ offset_bottom = 105.0
 scale = Vector2(0.2, 0.2)
 
 [node name="Pause_Menu" parent="Camera2D" instance=ExtResource("7_c40dt")]
+process_priority = -1
+z_as_relative = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -160.833
-offset_top = -83.5
-offset_right = 3053.17
-offset_bottom = 1583.5
+offset_left = -159.0
+offset_top = -83.0
+offset_right = 3037.0
+offset_bottom = 1570.0
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.1, 0.1)
+mouse_filter = 2
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(9.09493e-13, 6)

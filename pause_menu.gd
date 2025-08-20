@@ -22,13 +22,11 @@ func toggle_pause() -> void:
 		resume_game()
 
 func pause_game() -> void:
-	process_mode = Node.PROCESS_MODE_ALWAYS
 	show_menu()
 	get_tree().paused = true
 	animation_player.play("Blur")
 
 func resume_game() -> void:
-	process_mode = Node.PROCESS_MODE_INHERIT
 	get_tree().paused = false
 	animation_player.play_backwards("Blur")
 	await animation_player.animation_finished
