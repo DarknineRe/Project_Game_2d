@@ -18,7 +18,7 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var anim = $Body
 @onready var exp_bar = $Camera2D/ExpBar
 @onready var weapon = $WeaponPivot
-
+@onready var Level = $Camera2D/Level
 func _ready() -> void:
 	hp_bar.init_health(health_node.max_health)
 	
@@ -31,7 +31,10 @@ func _physics_process(_delta: float) -> void:
 	if not alive:
 		_play_death_and_respawn()
 		return
-
+	if exp_bar.level < 100:
+		Level.text = "LV %d"%exp_bar.level
+	else:
+		Level.text = "LV Max"
 func kill() -> void:
 	if alive:
 		_play_death_and_respawn()

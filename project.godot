@@ -23,6 +23,8 @@ DamageNumbers="*res://DamageNumbers.gd"
 
 window/size/viewport_width=1545
 window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 
