@@ -26,7 +26,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var half_viewport = get_viewport_rect().size / 2.0
 		aim_position = (event.position - half_viewport)
-
 func _physics_process(_delta: float) -> void:
 	if not alive:
 		_play_death_and_respawn()
