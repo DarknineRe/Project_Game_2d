@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://c180riemd3ono"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wf015"]
+bg_color = Color(0.270588, 0.270588, 0.270588, 0.388235)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+
+[node name="CanvasLayer" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 266.0
+offset_bottom = 124.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_wf015")
+text = "LV 1"
+horizontal_alignment = 1
+vertical_alignment = 1

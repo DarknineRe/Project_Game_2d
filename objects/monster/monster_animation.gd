@@ -6,6 +6,7 @@ extends Node
 @onready var monster : Monster = get_owner()
 
 func _physics_process(_delta: float) -> void:
+	anim.speed_scale = 1
 	if !monster.alive:
 		monster.hp_bar.hide()
 		anim.play("death")
@@ -30,6 +31,7 @@ func _physics_process(_delta: float) -> void:
 
 	if monster.stunned:
 		anim_name = "hurt"
+		anim.speed_scale = 2
 		anim.play(anim_name)
 		return
 

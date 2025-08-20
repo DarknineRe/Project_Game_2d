@@ -33,8 +33,8 @@ func _update_bar() -> void:
 		fill_style = fill_style.duplicate()
 		set("theme_override_styles/fill", fill_style)
 		if percent < 0.33:
-			fill_style.bg_color = Color.LIME
+			fill_style.bg_color = Color.LIGHT_GRAY
 		elif percent < 0.66:
-			fill_style.bg_color = Color.YELLOW
+			fill_style.bg_color = Color.LIGHT_STEEL_BLUE
 		else:
-			fill_style.bg_color = Color.CYAN
+			fill_style.bg_color = Color.CORNFLOWER_BLUE

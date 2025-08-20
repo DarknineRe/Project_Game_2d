@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://cinnjayur6erf"]
+[gd_scene load_steps=93 format=3 uid="uid://cinnjayur6erf"]
 
 [ext_resource type="Script" uid="uid://78ypdemkxmqo" path="res://Scripts/player/player.gd" id="1_3c7ea"]
 [ext_resource type="Texture2D" uid="uid://bdkxa7akou77p" path="res://Art/Character/Player/idle.png" id="1_7omxl"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/extendables/health.gd" id="13_t3r7j"]
 [ext_resource type="Script" uid="uid://31n4kh4rea4o" path="res://Scripts/player/playercam.gd" id="14_h6470"]
 [ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="15_42mp7"]
-[ext_resource type="Resource" uid="uid://08gqui53j6g2" path="res://resources/weapon tres/guns tres/Arbitrator.tres" id="15_k4k6l"]
+[ext_resource type="Resource" uid="uid://63cumtlypqu" path="res://resources/weapon tres/guns tres/bad_pistol.tres" id="15_eqmt2"]
 [ext_resource type="PackedScene" uid="uid://bl5cwid2efhm5" path="res://UI/EXP bar/exp_bar.tscn" id="15_ovgu5"]
 [ext_resource type="Script" uid="uid://4a3dbneksigv" path="res://Scripts/player/WeaponPivot.gd" id="16_ovgu5"]
 
@@ -23,7 +23,43 @@ size = Vector2(13, 12.5)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kai0q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxvsy"]
-bg_color = Color(0.985509, 0.659888, 0.547749, 1)
+bg_color = Color(0.93811, 0.711807, 0.191825, 1)
+
+[sub_resource type="FontFile" id="FontFile_eqmt2"]
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/200/0/ascent = 0.0
+cache/0/200/0/descent = 0.0
+cache/0/200/0/underline_position = 0.0
+cache/0/200/0/underline_thickness = 0.0
+cache/0/200/0/scale = 1.0
+cache/0/150/0/ascent = 0.0
+cache/0/150/0/descent = 0.0
+cache/0/150/0/underline_position = 0.0
+cache/0/150/0/underline_thickness = 0.0
+cache/0/150/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqmt2"]
+bg_color = Color(0, 0, 0, 0.321569)
+corner_radius_top_left = 200
+corner_radius_top_right = 200
+corner_radius_bottom_right = 200
+corner_radius_bottom_left = 200
+shadow_color = Color(0.427451, 0.427451, 0.427451, 0.27451)
+shadow_offset = Vector2(0, 4)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovgu5"]
 radius = 1.08571
@@ -576,10 +612,10 @@ target = NodePath("..")
 
 [node name="Hpbar" parent="Camera2D" node_paths=PackedStringArray("HPnode") instance=ExtResource("5_6sl1v")]
 z_index = 3
-offset_left = -135.333
-offset_top = -75.1667
-offset_right = 369.667
-offset_bottom = -52.1667
+offset_left = -113.667
+offset_top = -75.5
+offset_right = 391.333
+offset_bottom = -52.5
 scale = Vector2(0.2, 0.2)
 HPnode = NodePath("../../Health")
 
@@ -588,9 +624,9 @@ z_index = 3
 anchors_preset = 0
 anchor_left = 0.0
 anchor_right = 0.0
-offset_left = -135.0
+offset_left = -114.0
 offset_top = -66.1667
-offset_right = 370.0
+offset_right = 391.0
 offset_bottom = -43.1667
 scale = Vector2(0.2, 0.2)
 theme_override_styles/background = SubResource("StyleBoxEmpty_kai0q")
@@ -598,6 +634,21 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_wxvsy")
 step = 1.0
 script = ExtResource("10_wxvsy")
 StaminaNode = NodePath("../../Player_Movement")
+
+[node name="Level" type="Label" parent="Camera2D"]
+texture_filter = 4
+offset_left = -155.333
+offset_top = -77.6667
+offset_right = 360.667
+offset_bottom = 189.333
+scale = Vector2(0.07, 0.07)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_eqmt2")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxFlat_eqmt2")
+text = "LV 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ExpBar" parent="Camera2D" instance=ExtResource("15_ovgu5")]
 offset_left = -161.0
@@ -635,7 +686,7 @@ hitbox = NodePath("../Player_HurtboxArea")
 [node name="WeaponPivot" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("16_ovgu5")
-weapon = ExtResource("15_k4k6l")
+weapon = ExtResource("15_eqmt2")
 sprite_offset = Vector2(10, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="WeaponPivot"]

@@ -237,6 +237,7 @@ scale = Vector2(3, 3)
 collision_layer = 4
 collision_mask = 196
 script = ExtResource("1_mrqeg")
+chase_radius = 3000.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Monster"]]
 position = Vector2(0, 12)
@@ -302,7 +303,7 @@ metadata/_custom_type_script = "uid://cxqn24exvp8cj"
 
 [node name="Stun" type="Node" parent="MonsterStateMachine"]
 script = ExtResource("10_a2b7y")
-stun_time = 1.0
+stun_time = 0.5
 metadata/_custom_type_script = "uid://cxqn24exvp8cj"
 
 [node name="Attack" type="Node" parent="MonsterStateMachine"]
