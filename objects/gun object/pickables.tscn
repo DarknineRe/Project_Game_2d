@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1w4r2o13aw3d"]
 
-[ext_resource type="Script" uid="uid://ctp0eccenovte" path="res://pickables.gd" id="1_co51h"]
+[ext_resource type="Script" uid="uid://ctp0eccenovte" path="res://Scripts/pickables.gd" id="1_co51h"]
 [ext_resource type="Resource" uid="uid://63cumtlypqu" path="res://resources/weapon tres/guns tres/bad_pistol.tres" id="2_btyfc"]
 [ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="2_co51h"]
 
