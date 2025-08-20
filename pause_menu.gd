@@ -8,30 +8,27 @@ var is_paused: bool = false
 
 func _ready() -> void:
 	animation_player.play("RESET")
-	process_mode = Node.PROCESS_MODE_INHERIT
 	hide_menu()
 
-func _process(_delta: float) -> void:
-	handle_esc_input()
-
-func handle_esc_input() -> void:
-	if Input.is_action_just_pressed("esc"):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("esc") and not event.is_echo():
 		toggle_pause()
 
 func toggle_pause() -> void:
 	is_paused = !is_paused
-	
 	if is_paused:
 		pause_game()
 	else:
 		resume_game()
 
 func pause_game() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	show_menu()
 	get_tree().paused = true
 	animation_player.play("Blur")
 
 func resume_game() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
 	get_tree().paused = false
 	animation_player.play_backwards("Blur")
 	await animation_player.animation_finished

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://3xw2h1msw6x7"]
+[gd_scene load_steps=8 format=3 uid="uid://3xw2h1msw6x7"]
 
 [ext_resource type="Script" uid="uid://bpr0vml6quw7g" path="res://pause_menu.gd" id="1_nwcfo"]
 [ext_resource type="Shader" uid="uid://deqi7g0o7q0e" path="res://pause_menu.gdshader" id="2_05uyy"]
+[ext_resource type="Texture2D" uid="uid://jm3csc1ki7q2" path="res://Art/Font/icons8-menu-50 (1).png" id="2_p81d2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
 shader = ExtResource("2_05uyy")
@@ -90,11 +91,13 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -78.0
+offset_left = -111.0
 offset_top = 2.0
 offset_right = -1.0
-offset_bottom = 72.0
+offset_bottom = 107.0
 grow_horizontal = 0
+icon = ExtResource("2_p81d2")
+icon_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_p81d2")

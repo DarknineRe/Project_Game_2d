@@ -658,10 +658,15 @@ offset_bottom = 105.0
 scale = Vector2(0.2, 0.2)
 
 [node name="Pause_Menu" parent="Camera2D" instance=ExtResource("7_c40dt")]
-offset_left = -161.0
-offset_top = -83.0
-offset_right = 3053.0
-offset_bottom = 1584.0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -160.833
+offset_top = -83.5
+offset_right = 3053.17
+offset_bottom = 1583.5
+grow_horizontal = 1
+grow_vertical = 1
 scale = Vector2(0.1, 0.1)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
