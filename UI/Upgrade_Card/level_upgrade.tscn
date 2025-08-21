@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2rt1qkvjp0y2"]
+[gd_scene load_steps=19 format=3 uid="uid://b2rt1qkvjp0y2"]
 
 [ext_resource type="Script" uid="uid://cg87yvwiipiq" path="res://UI/Upgrade_Card/level_upgrade.gd" id="1_0p84y"]
 [ext_resource type="PackedScene" uid="uid://bcrnweqc8k1ff" path="res://UI/Upgrade_Card/upgrade_panel.tscn" id="2_7fetl"]
@@ -19,6 +19,18 @@ texture = SubResource("AtlasTexture_7fetl")
 description = "+100 speed"
 metadata/_custom_type_script = "uid://15yl5r2vtvu1"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahlcf"]
+atlas = ExtResource("3_xw3mv")
+region = Rect2(144, 1296, 16, 16)
+
+[sub_resource type="Resource" id="Resource_428hx"]
+script = ExtResource("5_6gfgj")
+damage_mult = 1.0
+damage_add = 10.0
+texture = SubResource("AtlasTexture_ahlcf")
+description = "+10 Damage"
+metadata/_custom_type_script = "uid://uyq7wtxef6ni"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_xw3mv"]
 atlas = ExtResource("3_xw3mv")
 region = Rect2(144, 1088, 16, 16)
@@ -26,10 +38,22 @@ region = Rect2(144, 1088, 16, 16)
 [sub_resource type="Resource" id="Resource_xw3mv"]
 script = ExtResource("5_6gfgj")
 damage_mult = 1.0
-damage_add = 20.0
+damage_add = 40.0
 texture = SubResource("AtlasTexture_xw3mv")
-description = "+ 10 Damage"
+description = "+ 40 Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j34n"]
+atlas = ExtResource("3_xw3mv")
+region = Rect2(80, 1072, 16, 16)
+
+[sub_resource type="Resource" id="Resource_3ivco"]
+script = ExtResource("4_rrbof")
+speed_add = 500.0
+speed_mult = 1.0
+texture = SubResource("AtlasTexture_3j34n")
+description = "+500 speed"
+metadata/_custom_type_script = "uid://15yl5r2vtvu1"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrbof"]
 atlas = ExtResource("3_xw3mv")
@@ -66,8 +90,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0p84y")
 upgrade_panel_scene = ExtResource("2_7fetl")
-common_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_7fetl")])
-rare_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_xw3mv")])
+common_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_7fetl"), SubResource("Resource_428hx")])
+rare_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_xw3mv"), SubResource("Resource_3ivco")])
 epic_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_rrbof")])
 legendary_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_6gfgj")])
 
