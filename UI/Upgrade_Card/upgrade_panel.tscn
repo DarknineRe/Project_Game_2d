@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bcrnweqc8k1ff"]
 
-[ext_resource type="Script" uid="uid://bv4rh5vicq7kq" path="res://upgrade_panel.gd" id="1_q6t7t"]
+[ext_resource type="Script" uid="uid://bv4rh5vicq7kq" path="res://UI/Upgrade_Card/upgrade_panel.gd" id="1_q6t7t"]
 [ext_resource type="Texture2D" uid="uid://btmmd5aly1wie" path="res://Art/weapon/upgrade.png" id="1_sn7ge"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6t7t"]

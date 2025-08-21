@@ -76,7 +76,7 @@ func _on_level_up(new_level: int) -> void:
 	print("Player leveled up! Level: ", new_level)
 	get_tree().paused = true
 	# Load the upgrade UI scene
-	var upgrade_scene = preload("res://level_upgrade.tscn")  # adjust path
+	var upgrade_scene = preload("res://UI/Upgrade_Card/level_upgrade.tscn")  # adjust path
 	var upgrade_ui = upgrade_scene.instantiate()
 
 	# Add it to Camera2D so it appears in screen space
@@ -84,7 +84,7 @@ func _on_level_up(new_level: int) -> void:
 
 	# Center the panel in the screen using anchors
 	if upgrade_ui is Control:
-		upgrade_ui.set_scale(Vector2(0.5, 0.5))
+		upgrade_ui.set_scale(Vector2(0.3, 0.3))
 		upgrade_ui.anchor_left = 0.5
 		upgrade_ui.anchor_top = 0.5
 		upgrade_ui.anchor_right = 0.5

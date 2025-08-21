@@ -1,11 +1,10 @@
-class_name BulletUpgradeSpeed
 extends BulletUpgrade
+class_name BulletUpgradeSpeed
 
-@export var speed_add : float = 0
-@export var speed_mult : float = 1
+@export var speed_add: float = 0
+@export var speed_mult: float = 1
 
-func apply_upgrade(bullet: Bullet):
+func apply_upgrade(bullet):
 	bullet.speed += speed_add
 	bullet.speed *= speed_mult
-	
-	print("new bullet speed is : " + str(bullet.speed))
+	print("New bullet speed: ", bullet.speed)

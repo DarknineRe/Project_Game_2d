@@ -1,12 +1,10 @@
+extends BulletUpgrade
 class_name BulletUpgradeDamage
-extends BulletUpgrade 
 
+@export var damage_mult: float = 1
+@export var damage_add: float = 0
 
-@export var damage_mult : float = 1
-@export var damage_add : float = 0
-
-func apply_upgrade(bullet: Bullet):
+func apply_upgrade(bullet):
 	bullet.damage += damage_add
 	bullet.damage *= damage_mult
-	
-	print("new bullet damage is : " + str(bullet.damage))
+	print("New bullet damage: ", bullet.damage)

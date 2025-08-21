@@ -5,6 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_5htlc"]
 script = ExtResource("2_dt60i")
+description = "No description"
 metadata/_custom_type_script = "uid://iaj127mpv0x7"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5htlc"]

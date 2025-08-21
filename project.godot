@@ -17,7 +17,7 @@ config/icon="uid://cxfmoi5m4wo8p"
 
 [autoload]
 
-DamageNumbers="*res://DamageNumbers.gd"
+DamageNumbers="*res://Global Load/DamageNumbers.gd"
 
 [display]
 

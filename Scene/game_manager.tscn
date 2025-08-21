@@ -1075,6 +1075,7 @@ script = ExtResource("8_oedh5")
 speed_add = 1000.0
 speed_mult = 1.0
 texture = SubResource("AtlasTexture_oedh5")
+description = "No description"
 metadata/_custom_type_script = "uid://15yl5r2vtvu1"
 
 [node name="GameManager" type="Node2D"]
@@ -1101,10 +1102,12 @@ tile_set = SubResource("TileSet_2bu33")
 [node name="upgrade" parent="Node2D" instance=ExtResource("7_oedh5")]
 position = Vector2(-133, -205)
 bullet_upgrade = SubResource("Resource_oedh5")
+needs_update = true
 
 [node name="upgrade2" parent="Node2D" instance=ExtResource("7_oedh5")]
 position = Vector2(-324, -205)
 bullet_upgrade = ExtResource("10_qffdj")
+needs_update = true
 
 [node name="Pickables" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-356, 281)

@@ -11,7 +11,7 @@ z_index = 2
 scale = Vector2(2, 2)
 collision_mask = 128
 script = ExtResource("1_bl6ei")
-experience = 10
+experience = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_bl6ei")
