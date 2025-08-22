@@ -113,6 +113,7 @@ func _play_death_and_respawn() -> void:
 	alive = true
 	health_node.health = health_node.max_health
 	hp_bar.init_health(health_node.max_health)
+	hp_bar._set_health(health_node.max_health)
 	emit_signal("respawned")
 
 
