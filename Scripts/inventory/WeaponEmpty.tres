@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponEmpty" load_steps=2 format=3 uid="uid://b4h3wtr4hqltg"]
+
+[ext_resource type="Script" uid="uid://1khkmudj83de" path="res://Scripts/inventory/WeaponEmpty.gd" id="1_0ir6m"]
+
+[resource]
+script = ExtResource("1_0ir6m")
+name = ""
+damage = 0.0
+crit_chance = 0.0
+crit_mult = 2.0
+metadata/_custom_type_script = "uid://1khkmudj83de"

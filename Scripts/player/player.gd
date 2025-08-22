@@ -20,12 +20,61 @@ var upgrades : Array[BulletUpgrade] = []
 @onready var weapon = $WeaponPivot
 @onready var Level = $Camera2D/Level
 
-
+# inventory
+@export var inventory: Inventory
+@export var default_weapon: Weapon = preload("res://Scripts/inventory/WeaponEmpty.tres")
 
 func _ready() -> void:
 	hp_bar.init_health(health_node.max_health)
 	exp_bar.level_up.connect(_on_level_up)
+	
+	# ต่อกับ InventoryUI
+	var inv_ui := get_tree().get_first_node_in_group("inventory_ui")
+	if inv_ui:
+		inv_ui.slot_changed.connect(_on_slot_changed)
 
+	if inventory:
+		inventory.updated.connect(_on_inventory_updated)
+	# slot0 ใช้อาวุธจริงของ player
+	if inventory and inventory.slots.size() > 0:
+		var slot0: InventorySlot = inventory.slots[0]
+		if slot0 and not slot0.item:
+			var new_item = InventoryItem.new()
+			new_item.weapon_ref = weapon  # weapon ของ player
+			slot0.item = new_item
+	# ตอนเริ่มเกม equip จาก slot0 ถ้ามี
+	_equip_from_slot0_if_any()
+
+
+func _on_slot_changed(index: int, item_stack_ui) -> void:
+	if index != 0:
+		return
+	if item_stack_ui and item_stack_ui.inventorySlot and item_stack_ui.inventorySlot.item:
+		var it: InventoryItem = item_stack_ui.inventorySlot.item
+		if it.weapon_ref:
+			weapon.equip(it.weapon_ref)
+			has_weapon = true
+
+func _on_inventory_updated() -> void:
+	_equip_from_slot0_if_any()
+
+func _equip_from_slot0_if_any() -> void:
+	if !inventory or inventory.slots.size() == 0:
+		weapon.equip(default_weapon)
+		has_weapon = false
+		return
+
+	var slot0: InventorySlot = inventory.slots[0]
+	var item: InventoryItem = slot0.item if slot0 else null
+
+	if item != null and item.weapon_ref != null:
+		weapon.equip(item.weapon_ref)
+		has_weapon = true
+	else:
+		weapon.equip(default_weapon)
+		has_weapon = false
+
+######
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

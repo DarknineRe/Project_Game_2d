@@ -26,6 +26,13 @@ func _process(_delta: float) -> void:
 
 
 func on_body_entered(body: PhysicsBody2D):
-	if body is Player:
-		body.weapon.equip(weapon)
+	if body is Player and weapon:
+		var item := InventoryItem.new()
+		item.name = weapon.name
+		item.texture = weapon.texture
+		item.weapon_ref = weapon
+		body.inventory.insert(item)
+		body.inventory.updated.emit()  # อัปเดตทันทีห
 		queue_free()
+		#body.weapon.equip(weapon)
+		#queue_free()

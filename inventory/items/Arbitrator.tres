@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://62j2f5i05wy6"]
+
+[ext_resource type="Script" uid="uid://ctlen0luhpxft" path="res://inventory/inventoryItem.gd" id="1_k1rrm"]
+[ext_resource type="Texture2D" uid="uid://sjqvam1o5bjd" path="res://Art/weapon/Sprite_Arbitrator.webp" id="2_t44ht"]
+
+[resource]
+script = ExtResource("1_k1rrm")
+name = "Arbitrator"
+texture = ExtResource("2_t44ht")
+metadata/_custom_type_script = "uid://ctlen0luhpxft"

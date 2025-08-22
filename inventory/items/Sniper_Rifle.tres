@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://c7cmwa7nv4w4u"]
+
+[ext_resource type="Script" uid="uid://ctlen0luhpxft" path="res://inventory/inventoryItem.gd" id="1_fskk3"]
+[ext_resource type="Texture2D" uid="uid://43cogwy3etm2" path="res://Art/weapon/Sprite_Sniper_Rifle.webp" id="2_3bv1u"]
+
+[resource]
+script = ExtResource("1_fskk3")
+name = "Sniper_Rifle"
+texture = ExtResource("2_3bv1u")
+metadata/_custom_type_script = "uid://ctlen0luhpxft"

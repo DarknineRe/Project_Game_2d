@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dni73yy5fu3kf"]
+
+[ext_resource type="Script" uid="uid://bg76y6ksrr7cj" path="res://Scripts/inventory/hotbar.gd" id="1_cyev2"]
+[ext_resource type="PackedScene" uid="uid://c4tfp7fpfw7lh" path="res://Scripts/inventory/hotbar_slot.tscn" id="1_dvivj"]
+
+[node name="Hotbar" type="HBoxContainer"]
+custom_minimum_size = Vector2(116, 102)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_cyev2")
+
+[node name="Slot" parent="." instance=ExtResource("1_dvivj")]
+layout_mode = 2
