@@ -687,10 +687,9 @@ metadata/_edit_horizontal_guides_ = [21017.0]
 
 [node name="spawnpoint" type="Marker2D" parent="."]
 
-[node name="Player" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("2_r02f3")]
+[node name="Player" parent="." instance=ExtResource("2_r02f3")]
 z_index = 1
 position = Vector2(-2.27374e-13, 1.81899e-12)
-spawn_point = NodePath("../spawnpoint")
 
 [node name="Monster" parent="." instance=ExtResource("3_f0eib")]
 position = Vector2(-38, 270)

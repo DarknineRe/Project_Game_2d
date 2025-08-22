@@ -12,4 +12,5 @@ script = ExtResource("1_ql0fc")
 damage_mult = 3.0
 damage_add = 15.0
 texture = SubResource("AtlasTexture_68dv5")
+description = "No description"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"

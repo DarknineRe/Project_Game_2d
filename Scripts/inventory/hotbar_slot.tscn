@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4tfp7fpfw7lh"]
+
+[ext_resource type="Script" uid="uid://d2jt7fu4dwtgf" path="res://Scripts/inventory/hotbar_slot.gd" id="1_amaau"]
+[ext_resource type="Texture2D" uid="uid://bt454du0khy1i" path="res://Scripts/inventory/0092b8d9-bdbe-4325-a42c-9f1dc0611aa3.png" id="2_amaau"]
+[ext_resource type="PackedScene" uid="uid://bvw0btny54qu4" path="res://Scripts/inventory/itemsStackui.tscn" id="3_perd0"]
+
+[node name="HotbarSlot" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(116, 102)
+offset_right = 116.0
+offset_bottom = 102.0
+script = ExtResource("1_amaau")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(0.173134, 0.157534)
+texture = ExtResource("2_amaau")
+centered = false
+hframes = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(116, 102)
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 78.0
+
+[node name="Panel" parent="CenterContainer" instance=ExtResource("3_perd0")]
+layout_mode = 2

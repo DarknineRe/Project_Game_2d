@@ -51,6 +51,7 @@ func shoot_bullet(gun: Gun, direction: Vector2):
 	await get_tree().create_timer(gun.fire_rate).timeout
 	can_shoot = true
 
-func equip(new_weapon : Weapon):
+func equip(new_weapon: Weapon) -> void:
 	weapon = new_weapon
-	weapon_sprite.texture = new_weapon.texture
+	if weapon:
+		weapon_sprite.texture = weapon.texture
