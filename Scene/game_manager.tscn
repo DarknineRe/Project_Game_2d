@@ -1107,30 +1107,26 @@ tile_set = SubResource("TileSet_2bu33")
 [node name="upgrade" parent="Node2D" instance=ExtResource("7_oedh5")]
 position = Vector2(-133, -205)
 bullet_upgrade = SubResource("Resource_oedh5")
-needs_update = true
+needs_update = false
 
 [node name="upgrade2" parent="Node2D" instance=ExtResource("7_oedh5")]
 position = Vector2(-324, -205)
 bullet_upgrade = ExtResource("10_qffdj")
-needs_update = true
+needs_update = false
 
 [node name="Pickables" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-356, 281)
-needs_update = true
 
 [node name="Pickables2" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-236, 287)
 weapon = ExtResource("11_llyhm")
-needs_update = true
 
 [node name="Pickables3" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-13, 295)
-needs_update = true
 
 [node name="Pickables4" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-111, 283)
 weapon = ExtResource("12_1g63r")
-needs_update = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
