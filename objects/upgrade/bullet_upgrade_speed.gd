@@ -7,4 +7,3 @@ class_name BulletUpgradeSpeed
 func apply_upgrade(bullet):
 	bullet.speed += speed_add
 	bullet.speed *= speed_mult
-	print("New bullet speed: ", bullet.speed)

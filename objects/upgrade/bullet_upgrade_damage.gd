@@ -7,4 +7,3 @@ class_name BulletUpgradeDamage
 func apply_upgrade(bullet):
 	bullet.damage += damage_add
 	bullet.damage *= damage_mult
-	print("New bullet damage: ", bullet.damage)

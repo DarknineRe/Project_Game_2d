@@ -20,9 +20,13 @@ atlas = ExtResource("1_sn7ge")
 region = Rect2(0, 640, 16, 16)
 
 [node name="UpgradePanel" type="Panel"]
-custom_minimum_size = Vector2(150, 200)
-offset_right = 40.0
-offset_bottom = 40.0
+custom_minimum_size = Vector2(200, 250)
+anchors_preset = -1
+anchor_bottom = 0.158951
+offset_right = 150.0
+offset_bottom = 200.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_q6t7t")
 script = ExtResource("1_q6t7t")
 
@@ -33,33 +37,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 1
+alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(70, 200)
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(0, 110)
-layout_mode = 2
-texture = SubResource("AtlasTexture_sn7ge")
-expand_mode = 5
-
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-text = "+ 10 Damage"
+texture = SubResource("AtlasTexture_sn7ge")
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "+ 10 Bullet Damage
+-  20 Bullet Speed"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
