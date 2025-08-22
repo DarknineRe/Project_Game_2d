@@ -10,6 +10,7 @@
 scale = Vector2(2, 2)
 script = ExtResource("1_co51h")
 weapon = ExtResource("2_btyfc")
+needs_update = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ie0kr")

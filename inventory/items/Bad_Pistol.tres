@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cb4fy7su70wxq"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cb4fy7su70wxq"]
 
 [ext_resource type="Script" uid="uid://ctlen0luhpxft" path="res://inventory/inventoryItem.gd" id="1_1ofs3"]
 [ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="2_1urm3"]
+[ext_resource type="Resource" uid="uid://63cumtlypqu" path="res://resources/weapon tres/guns tres/bad_pistol.tres" id="3_1urm3"]
 
 [resource]
 script = ExtResource("1_1ofs3")
 name = "Bad_Pistol"
 texture = ExtResource("2_1urm3")
+weapon_ref = ExtResource("3_1urm3")
 metadata/_custom_type_script = "uid://ctlen0luhpxft"

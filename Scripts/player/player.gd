@@ -43,7 +43,7 @@ func _ready() -> void:
 			new_item.weapon_ref = weapon  # weapon ของ player
 			slot0.item = new_item
 	# ตอนเริ่มเกม equip จาก slot0 ถ้ามี
-	_equip_from_slot0_if_any()
+	#equip_from_slot0_if_any()
 
 
 func _on_slot_changed(index: int, item_stack_ui) -> void:
