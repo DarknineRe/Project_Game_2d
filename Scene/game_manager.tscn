@@ -1117,7 +1117,11 @@ needs_update = true
 [node name="Pickables" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-356, 281)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 needs_update = true
+=======
+needs_update = false
+>>>>>>> Stashed changes
 =======
 needs_update = false
 >>>>>>> Stashed changes
@@ -1126,11 +1130,19 @@ needs_update = false
 position = Vector2(-236, 287)
 weapon = ExtResource("11_llyhm")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 needs_update = true
 
 [node name="Pickables3" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-13, 295)
 needs_update = true
+=======
+needs_update = false
+
+[node name="Pickables3" parent="." instance=ExtResource("10_fp4eu")]
+position = Vector2(-13, 295)
+needs_update = false
+>>>>>>> Stashed changes
 =======
 needs_update = false
 
@@ -1143,7 +1155,11 @@ needs_update = false
 position = Vector2(-111, 283)
 weapon = ExtResource("12_1g63r")
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 needs_update = true
+=======
+needs_update = false
+>>>>>>> Stashed changes
 =======
 needs_update = false
 >>>>>>> Stashed changes
