@@ -2,17 +2,23 @@ extends Control
 
 @export var upgrade_panel_scene: PackedScene
 @export var number_of_choices := 3
-signal upgrade_chosen(upgrade: BulletUpgrade)
-# Upgrade pools
-@export var common_upgrades: Array[BulletUpgrade]
-@export var rare_upgrades: Array[BulletUpgrade]
-@export var epic_upgrades: Array[BulletUpgrade]
-@export var legendary_upgrades: Array[BulletUpgrade]
+signal upgrade_chosen(upgrade)
+
+# Bullet Upgrade pools
+@export var common_bullet_upgrades: Array[BulletUpgrade]
+@export var rare_bullet_upgrades: Array[BulletUpgrade]
+@export var epic_bullet_upgrades: Array[BulletUpgrade]
+@export var legendary_bullet_upgrades: Array[BulletUpgrade]
+
+# Player Upgrade pools
+@export var common_player_upgrades: Array[PlayerUpgrade]
+@export var rare_player_upgrades: Array[PlayerUpgrade]
+@export var epic_player_upgrades: Array[PlayerUpgrade]
+@export var legendary_player_upgrades: Array[PlayerUpgrade]
 
 @onready var upgrade_card_container = $HBoxContainer
 @onready var player = get_owner()
 
-# Loot rarity weights
 var rarity_table = {
 	UpgradePanel.Rarity.COMMON: 60,
 	UpgradePanel.Rarity.RARE: 25,
@@ -30,12 +36,15 @@ func _ready() -> void:
 		var rolled_rarity = get_random_rarity()
 		panel.rarity = rolled_rarity
 
-		# Pick upgrade by rarity
-		panel.upgrade = get_upgrade_by_rarity(rolled_rarity)
+		# Decide randomly between Bullet or Player upgrade (you can adjust chance)
+		if randi_range(0, 1) == 0:
+			panel.upgrade_type = UpgradePanel.UpgradeType.BULLET
+			panel.upgrade = get_upgrade_by_rarity(rolled_rarity, true)
+		else:
+			panel.upgrade_type = UpgradePanel.UpgradeType.PLAYER
+			panel.upgrade = get_upgrade_by_rarity(rolled_rarity, false)
 
-		# Refresh UI
 		panel._ready()
-
 		panel.upgrade_selected.connect(_on_upgrade_selected)
 		upgrade_card_container.add_child(panel)
 
@@ -46,7 +55,7 @@ func _input(event):
 			if node.get_global_rect().has_point(mouse_position):
 				node.apply_upgrade()
 
-func _on_upgrade_selected(upgrade: BulletUpgrade) -> void:
+func _on_upgrade_selected(upgrade) -> void:
 	emit_signal("upgrade_chosen", upgrade)
 	print("Upgrade chosen: ", upgrade.description)
 	queue_free()
@@ -67,15 +76,27 @@ func get_random_rarity() -> UpgradePanel.Rarity:
 	
 	return UpgradePanel.Rarity.COMMON
 
-func get_upgrade_by_rarity(rarity: UpgradePanel.Rarity) -> BulletUpgrade:
-	match rarity:
-		UpgradePanel.Rarity.COMMON:
-			return common_upgrades.pick_random()
-		UpgradePanel.Rarity.RARE:
-			return rare_upgrades.pick_random()
-		UpgradePanel.Rarity.EPIC:
-			return epic_upgrades.pick_random()
-		UpgradePanel.Rarity.LEGENDARY:
-			return legendary_upgrades.pick_random()
-		_:
-			return common_upgrades.pick_random()
+func get_upgrade_by_rarity(rarity: UpgradePanel.Rarity, is_bullet: bool) -> Resource:
+	if is_bullet:
+		match rarity:
+			UpgradePanel.Rarity.COMMON:
+				return common_bullet_upgrades.pick_random()
+			UpgradePanel.Rarity.RARE:
+				return rare_bullet_upgrades.pick_random()
+			UpgradePanel.Rarity.EPIC:
+				return epic_bullet_upgrades.pick_random()
+			UpgradePanel.Rarity.LEGENDARY:
+				return legendary_bullet_upgrades.pick_random()
+	else:
+		match rarity:
+			UpgradePanel.Rarity.COMMON:
+				return common_player_upgrades.pick_random()
+			UpgradePanel.Rarity.RARE:
+				return rare_player_upgrades.pick_random()
+			UpgradePanel.Rarity.EPIC:
+				return epic_player_upgrades.pick_random()
+			UpgradePanel.Rarity.LEGENDARY:
+				return legendary_player_upgrades.pick_random()
+
+	# fallback return to satisfy GDScript
+	return null

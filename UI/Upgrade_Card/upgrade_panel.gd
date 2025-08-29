@@ -1,11 +1,13 @@
 extends Panel
 class_name UpgradePanel
 
-signal upgrade_selected(upgrade: BulletUpgrade)
+signal upgrade_selected(upgrade)
 
 enum Rarity { COMMON, RARE, EPIC, LEGENDARY }
+enum UpgradeType { BULLET, PLAYER }
 
-@export var upgrade: BulletUpgrade
+@export var upgrade: Resource = null  # BulletUpgrade or PlayerUpgrade
+@export var upgrade_type: UpgradeType = UpgradeType.BULLET
 @export var rarity: Rarity = Rarity.COMMON
 
 @onready var texture = $VBoxContainer/MarginContainer/TextureRect
@@ -32,14 +34,23 @@ func _ready() -> void:
 
 func set_player(p: CharacterBody2D) -> void:
 	player = p
+
 func _physics_process(_delta: float) -> void:
 	if player == null: 
 		player = get_tree().get_first_node_in_group("Player") 
 		if player == null: 
 			return # No player found
+
 func apply_upgrade():
-	if player:
-		player.upgrades.append(upgrade)
-		upgrade_selected.emit(upgrade)
-	else:
+	if not player:
 		push_error("UpgradePanel: Player not set before apply_upgrade()")
+		return
+	
+	if upgrade is BulletUpgrade:
+		player.upgrades.append(upgrade)
+	elif upgrade is PlayerUpgrade:
+		player.player_upgrades.append(upgrade)
+	else:
+		push_error("Unknown upgrade type applied")
+	
+	upgrade_selected.emit(upgrade)

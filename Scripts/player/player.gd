@@ -12,7 +12,7 @@ var stunned = false #
 var pending_level_ups: Array[int] = []
 var level_up_in_progress := false
 var upgrades : Array[BulletUpgrade] = []
-
+var player_upgrades: Array[PlayerUpgrade] = []
 @export var spawn_point: Node2D
 @onready var health_node: Health = $Health
 @onready var hp_bar = $Camera2D/Hpbar

@@ -86,8 +86,8 @@ shadow_color = Color(0.427451, 0.427451, 0.427451, 0.27451)
 shadow_offset = Vector2(0, 4)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovgu5"]
-radius = 1.08571
-height = 10.249
+radius = 2.17141
+height = 12.6404
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eigac"]
 atlas = ExtResource("2_hsluc")
@@ -700,7 +700,7 @@ scale = Vector2(0.2, 0.2)
 mouse_filter = 2
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(9.09493e-13, 6)
+position = Vector2(-0.166667, 5)
 rotation = 1.5708
 scale = Vector2(-0.921059, 0.975704)
 shape = SubResource("CapsuleShape2D_ovgu5")
