@@ -287,8 +287,6 @@ offset_top = -19.0
 offset_right = 480.0
 offset_bottom = 4.0
 scale = Vector2(0.1, 0.1)
-iframe = null
-timer2 = null
 HPnode = NodePath("../Health")
 
 [node name="MonsterStateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

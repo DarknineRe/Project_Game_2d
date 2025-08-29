@@ -20,11 +20,19 @@ func change_health(HP: float) -> void:
 
 func _set_health(new_hp: float) -> void:
 	var prev_hp = hp
-	hp = clamp(new_hp, 0, max_value)
+	hp = clamp(new_hp, 0, HPnode.max_health)
+
+	# Update bar max values when max health changes
+	max_value = HPnode.max_health
+	damgae_bar.max_value = HPnode.max_health
+
+	# Set current values
 	value = hp
+	damgae_bar.value = min(damgae_bar.value, hp)
+
 	var hp_percent = float(hp) / max_value
 
-	# Get the shared style first
+	# Get the shared style
 	var fill_style = get("theme_override_styles/fill")
 	if fill_style:
 		fill_style = fill_style.duplicate()

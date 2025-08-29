@@ -5,14 +5,15 @@ signal respawned
 signal damaged(attack: Attack)
 
 var alive = true
-var is_running = false #
-var has_weapon = false #
+var is_running = false
+var has_weapon = false
 var aim_position: Vector2 = Vector2(1, 0)
-var stunned = false #
+var stunned = false
 var pending_level_ups: Array[int] = []
 var level_up_in_progress := false
 var upgrades : Array[BulletUpgrade] = []
 var player_upgrades: Array[PlayerUpgrade] = []
+
 @export var spawn_point: Node2D
 @onready var health_node: Health = $Health
 @onready var hp_bar = $Camera2D/Hpbar
@@ -20,7 +21,7 @@ var player_upgrades: Array[PlayerUpgrade] = []
 @onready var exp_bar = $Camera2D/ExpBar
 @onready var weapon = $WeaponPivot
 @onready var Level = $Camera2D/Level
-
+@onready var movement: Movement = $Player_Movement
 # inventory
 @export var inventory: Inventory
 @export var default_weapon: Weapon = preload("res://Scripts/inventory/WeaponEmpty.tres")
@@ -29,22 +30,21 @@ func _ready() -> void:
 	hp_bar.init_health(health_node.max_health)
 	exp_bar.level_up.connect(_on_level_up)
 	
-	# ต่อกับ InventoryUI
+	# connect with InventoryUI
 	var inv_ui := get_tree().get_first_node_in_group("inventory_ui")
 	if inv_ui:
 		inv_ui.slot_changed.connect(_on_slot_changed)
 
 	if inventory:
 		inventory.updated.connect(_on_inventory_updated)
-	# slot0 ใช้อาวุธจริงของ player
+
+	# slot0 = player's actual weapon
 	if inventory and inventory.slots.size() > 0:
 		var slot0: InventorySlot = inventory.slots[0]
 		if slot0 and not slot0.item:
 			var new_item = InventoryItem.new()
-			new_item.weapon_ref = weapon  # weapon ของ player
+			new_item.weapon_ref = weapon
 			slot0.item = new_item
-	# ตอนเริ่มเกม equip จาก slot0 ถ้ามี
-	#equip_from_slot0_if_any()
 
 
 func _on_slot_changed(index: int, item_stack_ui) -> void:
@@ -75,34 +75,28 @@ func _equip_from_slot0_if_any() -> void:
 		weapon.equip(default_weapon)
 		has_weapon = false
 
-######
+# ---------------- INPUT / PHYSICS ----------------
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var half_viewport = get_viewport_rect().size / 2.0
 		aim_position = (event.position - half_viewport)
 
-
 func _physics_process(_delta: float) -> void:
 	if not alive:
-		
 		_play_death_and_respawn()
 		return
 		
 	if exp_bar.level < 100:
-		
-		Level.text = "LV %d"%exp_bar.level
-		
+		Level.text = "LV %d" % exp_bar.level
 	else:
-		
 		Level.text = "LV Max"
-		
-func kill() -> void:
-	
-	if alive:
-		
-		_play_death_and_respawn()
 
+# ---------------- DEATH / RESPAWN ----------------
+
+func kill() -> void:
+	if alive:
+		_play_death_and_respawn()
 
 func _play_death_and_respawn() -> void:
 	alive = false
@@ -117,11 +111,11 @@ func _play_death_and_respawn() -> void:
 	hp_bar._set_health(health_node.max_health)
 	emit_signal("respawned")
 
-
 func on_damaged(attack: Attack) -> void:
 	stunned = true
 	damaged.emit(attack)
 
+# ---------------- LEVEL UP ----------------
 
 func _on_level_up(new_level: int) -> void:
 	print("Player leveled up! Level: ", new_level)
@@ -148,10 +142,19 @@ func _process_next_level_up() -> void:
 		upgrade_ui.anchor_bottom = 0.5
 		upgrade_ui.position = Vector2(0, 0)
 
-	# When upgrade is chosen → resume game & process next queued level-up
+	# When upgrade is chosen
 	upgrade_ui.upgrade_chosen.connect(func(_upgrade):
+		if _upgrade is PlayerUpgrade:
+			_upgrade.apply_upgrade(self)
+			player_upgrades.append(_upgrade)
+
 		get_tree().paused = false
 		level_up_in_progress = false
 		pending_level_ups.pop_front()
 		_process_next_level_up()
 	)
+
+func _on_level_up_pressed() -> void:
+	if exp_bar.level < 100: # Prevent going beyond max
+		exp_bar.level += 1
+		_on_level_up(exp_bar.level)

@@ -635,6 +635,15 @@ limit_smoothed = true
 script = ExtResource("14_h6470")
 target = NodePath("..")
 
+[node name="Level_Up" type="Button" parent="Camera2D"]
+offset_left = 107.833
+offset_top = -80.5
+offset_right = 889.833
+offset_bottom = 200.5
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 200
+text = "level Up"
+
 [node name="Hpbar" parent="Camera2D" node_paths=PackedStringArray("HPnode") instance=ExtResource("5_6sl1v")]
 z_index = 3
 offset_left = -139.667
@@ -642,8 +651,6 @@ offset_top = -97.3333
 offset_right = 365.333
 offset_bottom = -74.3333
 scale = Vector2(0.2, 0.2)
-iframe = null
-timer2 = null
 HPnode = NodePath("../../Health")
 
 [node name="Staminabar" parent="Camera2D" node_paths=PackedStringArray("StaminaNode") instance=ExtResource("5_6sl1v")]
@@ -739,3 +746,4 @@ texture = ExtResource("15_42mp7")
 [connection signal="area_entered" from="Player_HurtboxArea" to="." method="_on_player_hurtbox_area_area_entered"]
 [connection signal="damaged" from="Player_HurtboxArea" to="." method="on_damaged"]
 [connection signal="damaged" from="Player_HurtboxArea" to="Health" method="on_damaged"]
+[connection signal="pressed" from="Camera2D/Level_Up" to="." method="_on_level_up_pressed"]

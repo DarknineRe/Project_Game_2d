@@ -16,7 +16,6 @@ func on_damaged(attack: Attack):
 	
 	health -= attack.damage
 	health_changed.emit(health)
-	
 	if health <= 0:
 		health = 0
 		unit.alive = false
@@ -24,8 +23,7 @@ func on_damaged(attack: Attack):
 # -----------------------------
 # Upgrade function
 # -----------------------------
-func increase_max_health(amount: float, heal: bool = true) -> void:
+func increase_max_health(amount: float) -> void:
 	max_health += amount
-	if heal:
-		health += amount
+	health += amount  # instantly give more health
 	health_changed.emit(health)

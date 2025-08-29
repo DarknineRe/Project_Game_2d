@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2rt1qkvjp0y2"]
+[gd_scene load_steps=16 format=3 uid="uid://b2rt1qkvjp0y2"]
 
 [ext_resource type="Script" uid="uid://cg87yvwiipiq" path="res://UI/Upgrade_Card/level_upgrade.gd" id="1_0p84y"]
 [ext_resource type="PackedScene" uid="uid://bcrnweqc8k1ff" path="res://UI/Upgrade_Card/upgrade_panel.tscn" id="2_7fetl"]
@@ -16,26 +16,26 @@ metadata/_custom_type_script = "uid://uyq7wtxef6ni"
 
 [sub_resource type="Resource" id="Resource_6gfgj"]
 script = ExtResource("5_6gfgj")
-damage_mult = 0.0
+damage_mult = 1.0
 damage_add = 20.0
 description = "+ 20 Bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
 
 [sub_resource type="Resource" id="Resource_ahlcf"]
 script = ExtResource("5_6gfgj")
-damage_mult = 0.0
+damage_mult = 1.0
 damage_add = 30.0
 description = "+ 30 bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
 
 [sub_resource type="Resource" id="Resource_428hx"]
 script = ExtResource("5_6gfgj")
-damage_mult = 0.0
+damage_mult = 1.0
 damage_add = 50.0
 description = "+ 50 Bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
 
-[sub_resource type="Resource" id="Resource_3j34n"]
+[sub_resource type="Resource" id="Resource_7fetl"]
 script = ExtResource("6_xw3mv")
 health_add = 10.0
 health_mult = 1.0
@@ -49,12 +49,27 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
-description = "+ 10 Max_Health"
-upgrade_type = "health"
-amount = 10.0
+description = "+ 10 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
-[sub_resource type="Resource" id="Resource_3ivco"]
+[sub_resource type="Resource" id="Resource_88c1t"]
+script = ExtResource("6_xw3mv")
+health_add = 0.0
+health_mult = 1.0
+speed_add = 1000.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 0.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+description = "+ 1000 speed"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="Resource" id="Resource_xw3mv"]
 script = ExtResource("6_xw3mv")
 health_add = 20.0
 health_mult = 1.0
@@ -68,12 +83,10 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
-description = "+ 20 Max_Health"
-upgrade_type = "health"
-amount = 10.0
+description = "+ 20 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
-[sub_resource type="Resource" id="Resource_88c1t"]
+[sub_resource type="Resource" id="Resource_3j34n"]
 script = ExtResource("6_xw3mv")
 health_add = 30.0
 health_mult = 1.0
@@ -87,12 +100,10 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
-description = " + 30 Max_Health"
-upgrade_type = "health"
-amount = 10.0
+description = "+ 30 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
-[sub_resource type="Resource" id="Resource_ejbi3"]
+[sub_resource type="Resource" id="Resource_3ivco"]
 script = ExtResource("6_xw3mv")
 health_add = 50.0
 health_mult = 1.0
@@ -106,9 +117,7 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
-description = "+ 50 Max_Health"
-upgrade_type = "health"
-amount = 10.0
+description = "+ 50 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
 [node name="Level_Upgrade" type="Control"]
@@ -126,10 +135,10 @@ common_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_rr
 rare_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_6gfgj")])
 epic_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_ahlcf")])
 legendary_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_428hx")])
-common_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3j34n")])
-rare_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3ivco")])
-epic_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_88c1t")])
-legendary_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_ejbi3")])
+common_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_7fetl"), SubResource("Resource_88c1t")])
+rare_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_xw3mv")])
+epic_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3j34n")])
+legendary_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3ivco")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
