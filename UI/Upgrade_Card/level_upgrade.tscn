@@ -166,7 +166,7 @@ metadata/_custom_type_script = "uid://dtubmh57j3wkd"
 
 [node name="Level_Upgrade" type="Control"]
 process_mode = 2
-z_index = 5
+z_index = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

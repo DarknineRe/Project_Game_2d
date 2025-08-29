@@ -1,13 +1,16 @@
-[gd_scene load_steps=94 format=3 uid="uid://cinnjayur6erf"]
+[gd_scene load_steps=100 format=3 uid="uid://cinnjayur6erf"]
 
 [ext_resource type="Script" uid="uid://78ypdemkxmqo" path="res://Scripts/player/player.gd" id="1_3c7ea"]
 [ext_resource type="Texture2D" uid="uid://bdkxa7akou77p" path="res://Art/Character/Player/idle.png" id="1_7omxl"]
 [ext_resource type="Texture2D" uid="uid://i2hie3g8fgxd" path="res://Art/Character/Player/run.png" id="2_3c7ea"]
 [ext_resource type="Texture2D" uid="uid://dlmqohhu643uu" path="res://Art/Character/Player/hurt.png" id="2_hsluc"]
+[ext_resource type="Script" uid="uid://b222thebw7vww" path="res://inventory/inventory.gd" id="2_lhccw"]
 [ext_resource type="Script" uid="uid://cb5mijbcxqckx" path="res://Scripts/player/player_animation.gd" id="2_nhqjh"]
 [ext_resource type="Texture2D" uid="uid://cgjroyh50eg3x" path="res://Art/Character/Player/death.png" id="2_u4c7w"]
 [ext_resource type="Script" uid="uid://bjv1jeys0wqgg" path="res://Scripts/extendables/hitbox.gd" id="2_udxxx"]
+[ext_resource type="Script" uid="uid://cabximr14m2fd" path="res://inventory/inventorySlot.gd" id="3_7d6xm"]
 [ext_resource type="Script" uid="uid://da1wokldih1oj" path="res://Scripts/player/player_movement.gd" id="3_udxxx"]
+[ext_resource type="Script" uid="uid://ctlen0luhpxft" path="res://inventory/inventoryItem.gd" id="4_7d6xm"]
 [ext_resource type="PackedScene" uid="uid://c18522k280og1" path="res://UI/HP bar/hpbar.tscn" id="5_6sl1v"]
 [ext_resource type="PackedScene" uid="uid://3xw2h1msw6x7" path="res://UI/Pause Menu/pause_menu.tscn" id="7_c40dt"]
 [ext_resource type="Script" uid="uid://c8fw85qg2q36r" path="res://UI/Stamina bar/stamina_bar.gd" id="10_wxvsy"]
@@ -17,6 +20,23 @@
 [ext_resource type="Resource" uid="uid://63cumtlypqu" path="res://resources/weapon tres/guns tres/bad_pistol.tres" id="15_eqmt2"]
 [ext_resource type="PackedScene" uid="uid://bl5cwid2efhm5" path="res://UI/EXP bar/exp_bar.tscn" id="15_ovgu5"]
 [ext_resource type="Script" uid="uid://4a3dbneksigv" path="res://Scripts/player/WeaponPivot.gd" id="16_ovgu5"]
+
+[sub_resource type="Resource" id="Resource_1vqkc"]
+script = ExtResource("4_7d6xm")
+name = ""
+weapon_ref = ExtResource("15_eqmt2")
+metadata/_custom_type_script = "uid://ctlen0luhpxft"
+
+[sub_resource type="Resource" id="Resource_uktg4"]
+script = ExtResource("3_7d6xm")
+item = SubResource("Resource_1vqkc")
+amount = 0
+metadata/_custom_type_script = "uid://cabximr14m2fd"
+
+[sub_resource type="Resource" id="Resource_2sr8w"]
+script = ExtResource("2_lhccw")
+slots = Array[ExtResource("3_7d6xm")]([SubResource("Resource_uktg4"), null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+metadata/_custom_type_script = "uid://b222thebw7vww"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_udxxx"]
 size = Vector2(13, 12.5)
@@ -600,6 +620,7 @@ y_sort_enabled = true
 scale = Vector2(6, 6)
 collision_mask = 128
 script = ExtResource("1_3c7ea")
+inventory = SubResource("Resource_2sr8w")
 
 [node name="Player_HurtboxArea" type="Area2D" parent="." groups=["Player"]]
 script = ExtResource("2_udxxx")
@@ -621,6 +642,8 @@ offset_top = -97.3333
 offset_right = 365.333
 offset_bottom = -74.3333
 scale = Vector2(0.2, 0.2)
+iframe = null
+timer2 = null
 HPnode = NodePath("../../Health")
 
 [node name="Staminabar" parent="Camera2D" node_paths=PackedStringArray("StaminaNode") instance=ExtResource("5_6sl1v")]
@@ -656,9 +679,9 @@ vertical_alignment = 1
 
 [node name="ExpBar" parent="Camera2D" instance=ExtResource("15_ovgu5")]
 offset_left = -192.0
-offset_top = 102.0
+offset_top = 102.5
 offset_right = 1728.0
-offset_bottom = 129.0
+offset_bottom = 129.5
 scale = Vector2(0.2, 0.2)
 
 [node name="Pause_Menu" parent="Camera2D" instance=ExtResource("7_c40dt")]

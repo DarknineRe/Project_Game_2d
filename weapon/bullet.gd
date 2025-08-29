@@ -23,4 +23,8 @@ func set_bullet_stat(speed_: float, lifetime_: float, damage_: float, max_pierce
 
 
 func _on_stats_updated():
+	if speed <= 0:
+		speed = 0
+	if fire_rate <= 0:
+		fire_rate = 0.1
 	pass
