@@ -13,12 +13,16 @@ func _ready() -> void:
 # Add EXP and check for level-up
 func add_exp(amount: int) -> void:
 	current_exp += amount
-	if current_exp >= exp_to_next_level:
+
+	# Handle multiple level ups in a single EXP gain
+	while current_exp >= exp_to_next_level:
 		current_exp -= exp_to_next_level
 		level += 1
 		emit_signal("level_up", level)
-		# Increase requirement for next level (can be adjusted)
+
+		# Increase requirement for next level (you can tweak this formula)
 		exp_to_next_level = int(exp_to_next_level * 1.2)
+
 	_update_bar()
 
 # Internal: updates progress bar

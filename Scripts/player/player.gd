@@ -9,7 +9,8 @@ var is_running = false #
 var has_weapon = false #
 var aim_position: Vector2 = Vector2(1, 0)
 var stunned = false #
-
+var pending_level_ups: Array[int] = []
+var level_up_in_progress := false
 var upgrades : Array[BulletUpgrade] = []
 
 @export var spawn_point: Node2D
@@ -124,19 +125,33 @@ func on_damaged(attack: Attack) -> void:
 
 func _on_level_up(new_level: int) -> void:
 	print("Player leveled up! Level: ", new_level)
+	pending_level_ups.append(new_level)
+	_process_next_level_up()
+
+func _process_next_level_up() -> void:
+	if level_up_in_progress or pending_level_ups.is_empty():
+		return
+
+	level_up_in_progress = true
 	get_tree().paused = true
-	# Load the upgrade UI scene
-	var upgrade_scene = preload("res://UI/Upgrade_Card/level_upgrade.tscn")  # adjust path
+
+	var upgrade_scene = preload("res://UI/Upgrade_Card/level_upgrade.tscn")
 	var upgrade_ui = upgrade_scene.instantiate()
 
-	# Add it to Camera2D so it appears in screen space
 	$Camera2D.add_child(upgrade_ui)
 
-	# Center the panel in the screen using anchors
 	if upgrade_ui is Control:
 		upgrade_ui.set_scale(Vector2(0.3, 0.3))
 		upgrade_ui.anchor_left = 0.5
 		upgrade_ui.anchor_top = 0.5
 		upgrade_ui.anchor_right = 0.5
 		upgrade_ui.anchor_bottom = 0.5
-		upgrade_ui.position = Vector2(0, 0)  # center relative to anchors
+		upgrade_ui.position = Vector2(0, 0)
+
+	# When upgrade is chosen → resume game & process next queued level-up
+	upgrade_ui.upgrade_chosen.connect(func(_upgrade):
+		get_tree().paused = false
+		level_up_in_progress = false
+		pending_level_ups.pop_front()
+		_process_next_level_up()
+	)

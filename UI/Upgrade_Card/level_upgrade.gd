@@ -2,7 +2,7 @@ extends Control
 
 @export var upgrade_panel_scene: PackedScene
 @export var number_of_choices := 3
-
+signal upgrade_chosen(upgrade: BulletUpgrade)
 # Upgrade pools
 @export var common_upgrades: Array[BulletUpgrade]
 @export var rare_upgrades: Array[BulletUpgrade]
@@ -47,7 +47,7 @@ func _input(event):
 				node.apply_upgrade()
 
 func _on_upgrade_selected(upgrade: BulletUpgrade) -> void:
-	get_tree().paused = false
+	emit_signal("upgrade_chosen", upgrade)
 	print("Upgrade chosen: ", upgrade.description)
 	queue_free()
 
