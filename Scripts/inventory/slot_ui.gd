@@ -8,7 +8,6 @@ var index: int
 
 func insert(isg: ItemStackui):
 	itemStackui = isg
-	backgroundSprite.frame = 1
 	container.add_child(itemStackui)
 	if !itemStackui.inventorySlot or inventory.slots[index] == itemStackui.inventorySlot:
 	#if !itemStackui.inventorySlot || inventory.slots[index] == itemStackui.inventorySlot:
@@ -21,8 +20,6 @@ func takeItem():
 	
 	container.remove_child(itemStackui)
 	itemStackui = null
-	backgroundSprite.frame = 0
-	
 	return item
 
 
