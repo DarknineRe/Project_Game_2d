@@ -4,6 +4,7 @@ extends Control
 @onready var color_rect: ColorRect = $ColorRect
 @onready var panel_container: PanelContainer = $PanelContainer
 var is_paused: bool = false
+
 func _ready() -> void:
 	animation_player.play("RESET")
 	hide_menu()
