@@ -53,6 +53,7 @@ texture = ExtResource("4_fxcee")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Present"

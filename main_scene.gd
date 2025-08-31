@@ -4,6 +4,7 @@ extends Node2D
 @onready var exit_button = $CanvasLayer/Exit_Button
 @onready var game_name = $CanvasLayer/Game_Name
 @export var load_screen : PackedScene
+
 func _on_start_button_pressed() -> void:
 	get_tree().change_scene_to_packed(load_screen)
 

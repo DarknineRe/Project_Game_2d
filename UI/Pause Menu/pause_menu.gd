@@ -3,9 +3,7 @@ extends Control
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var color_rect: ColorRect = $ColorRect
 @onready var panel_container: PanelContainer = $PanelContainer
-
 var is_paused: bool = false
-
 func _ready() -> void:
 	animation_player.play("RESET")
 	hide_menu()
@@ -48,7 +46,8 @@ func _on_restart_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://main_scene.tscn")
 
 func _on_menu_pressed() -> void:
 	pause_game()
