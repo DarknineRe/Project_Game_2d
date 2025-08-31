@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://iaj127mpv0x7" path="res://objects/upgrade/bullet_upgrade.gd" id="3_0p84y"]
 [ext_resource type="Script" uid="uid://uyq7wtxef6ni" path="res://objects/upgrade/bullet_upgrade_damage.gd" id="5_6gfgj"]
 [ext_resource type="Script" uid="uid://0mkgsh2l11eb" path="res://objects/upgrade/player_upgrade.gd" id="5_7fetl"]
-[ext_resource type="Script" uid="uid://b580bq1ggooop" path="res://objects/upgrade/upgrade_orb/player_upgrade_all_star.gd" id="6_xw3mv"]
+[ext_resource type="Script" uid="uid://b580bq1ggooop" path="res://objects/upgrade/player_upgrade_all_star.gd" id="6_xw3mv"]
 
 [sub_resource type="Resource" id="Resource_rrbof"]
 script = ExtResource("5_6gfgj")
@@ -56,7 +56,7 @@ metadata/_custom_type_script = "uid://b580bq1ggooop"
 script = ExtResource("6_xw3mv")
 health_add = 0.0
 health_mult = 1.0
-speed_add = 1000.0
+speed_add = 100.0
 speed_mult = 1.0
 sprint_mult_add = 0.0
 sprint_mult_mult = 1.0
@@ -66,7 +66,7 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
-description = "+ 1000 speed"
+description = "+ 100 speed"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
 [sub_resource type="Resource" id="Resource_xw3mv"]

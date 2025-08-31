@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Project_Midterm"
-run/main_scene="uid://ck3ss0rfky61o"
+run/main_scene="uid://bh41hclgpfpw4"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://cxfmoi5m4wo8p"
 
 [autoload]
 
 DamageNumbers="*res://Global Load/DamageNumbers.gd"
+AudioManager="*res://audio_manager.gd"
 
 [display]
 

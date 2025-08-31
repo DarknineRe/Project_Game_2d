@@ -90,7 +90,7 @@ func _physics_process(_delta: float) -> void:
 	if exp_bar.level < 100:
 		Level.text = "LV %d" % exp_bar.level
 	else:
-		Level.text = "LV Max"
+		Level.text = "LV MAX"
 
 # ---------------- DEATH / RESPAWN ----------------
 

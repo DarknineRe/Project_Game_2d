@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://oxa5skj8w1yn"]
+
+[ext_resource type="Script" uid="uid://cll1gut310jii" path="res://main_scene.gd" id="1_2c62f"]
+[ext_resource type="PackedScene" uid="uid://ck3ss0rfky61o" path="res://Scene/game_manager.tscn" id="2_gyfs4"]
+
+[node name="Main_Scene" type="Node2D"]
+script = ExtResource("1_2c62f")
+load_screen = ExtResource("2_gyfs4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game_Name" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -298.0
+offset_top = 103.0
+offset_right = 308.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "GAME NAME"
+
+[node name="Start_Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 323.0
+offset_right = 101.0
+offset_bottom = 398.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="Exit_Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -99.0
+offset_top = 448.0
+offset_right = 101.0
+offset_bottom = 523.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Exit_Button" to="." method="_on_exit_button_pressed"]
