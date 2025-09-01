@@ -12,4 +12,4 @@ func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		body.health_node.heal(heal_amount)  # ใช้ฟังก์ชัน heal ใน Health.gd
 		picked_up.emit()
-		queue_free()  # ลบโพชั่นออกเมื่อถูกเก็บ
+		queue_free()  

@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=4 uid="uid://ck3ss0rfky61o"]
+[gd_scene load_steps=20 format=4 uid="uid://ck3ss0rfky61o"]
 
 [ext_resource type="Script" uid="uid://d2mqa5c7yjtbh" path="res://Scripts/game_manager.gd" id="1_2bu33"]
 [ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://Scene/player.tscn" id="1_e5k1s"]
 [ext_resource type="Resource" uid="uid://d1d2f6hwc241w" path="res://inventory/playerInventory.tres" id="3_fp4eu"]
+[ext_resource type="PackedScene" uid="uid://bf3s8fmugytir" path="res://UI/GameOver/game_over.tscn" id="4_vp4th"]
 [ext_resource type="Texture2D" uid="uid://chm637onughti" path="res://Art/Background/BackGround.png" id="5_ovyp7"]
 [ext_resource type="Texture2D" uid="uid://xkuang8bs5c1" path="res://Art/Background/RPGpack_sheet.png" id="6_np6x0"]
 [ext_resource type="PackedScene" uid="uid://b1w4r2o13aw3d" path="res://objects/gun object/pickables.tscn" id="10_fp4eu"]
@@ -1136,3 +1137,5 @@ position = Vector2(-921, -174)
 
 [node name="Potion" parent="." instance=ExtResource("13_1g63r")]
 position = Vector2(-229, 207)
+
+[node name="GameOver" parent="." instance=ExtResource("4_vp4th")]
