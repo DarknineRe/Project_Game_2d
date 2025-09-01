@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ck3ss0rfky61o"]
+[gd_scene load_steps=19 format=4 uid="uid://ck3ss0rfky61o"]
 
 [ext_resource type="Script" uid="uid://d2mqa5c7yjtbh" path="res://Scripts/game_manager.gd" id="1_2bu33"]
 [ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://Scene/player.tscn" id="1_e5k1s"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://btihsn66vl7j2" path="res://Scripts/inventory/InventoryUI.tscn" id="12_llyhm"]
 [ext_resource type="PackedScene" uid="uid://c0va0dlncfwp7" path="res://Scene/monster_archer.tscn" id="12_m51ev"]
 [ext_resource type="Script" uid="uid://22qj7qe1ccih" path="res://Scripts/inventory/canvas_layer.gd" id="12_vp4th"]
+[ext_resource type="PackedScene" uid="uid://bg8jkxl7qhs72" path="res://inventory/items/potion.tscn" id="13_1g63r"]
 [ext_resource type="PackedScene" uid="uid://dni73yy5fu3kf" path="res://Scripts/inventory/hotbar.tscn" id="15_m51ev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mkpxm"]
@@ -1090,17 +1091,14 @@ tile_set = SubResource("TileSet_2bu33")
 
 [node name="Bad_piston" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-356, 281)
-needs_update = false
 
 [node name="Atbitrator" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-236, 287)
 weapon = ExtResource("11_llyhm")
-needs_update = false
 
 [node name="Sniper Rifle" parent="." instance=ExtResource("10_fp4eu")]
 position = Vector2(-111, 283)
 weapon = ExtResource("12_1g63r")
-needs_update = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -1135,3 +1133,6 @@ size_flags_vertical = 8
 
 [node name="Monster_Archer" parent="." instance=ExtResource("12_m51ev")]
 position = Vector2(-921, -174)
+
+[node name="Potion" parent="." instance=ExtResource("13_1g63r")]
+position = Vector2(-229, 207)

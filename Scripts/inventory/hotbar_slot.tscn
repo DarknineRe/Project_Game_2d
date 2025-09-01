@@ -35,4 +35,3 @@ grow_vertical = 2
 
 [node name="Panel" parent="CenterContainer" instance=ExtResource("3_perd0")]
 layout_mode = 2
-icon_size = Vector2(60, 60)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=4 format=3 uid="uid://cb7ygdkldctxt"]
+
+[ext_resource type="Script" uid="uid://ctlen0luhpxft" path="res://inventory/inventoryItem.gd" id="1_nuiwi"]
+[ext_resource type="Texture2D" uid="uid://btmmd5aly1wie" path="res://Art/weapon/upgrade.png" id="2_nqadp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3prpm"]
+atlas = ExtResource("2_nqadp")
+region = Rect2(192, 272, 16, 16)
+
+[resource]
+script = ExtResource("1_nuiwi")
+name = "Posion"
+texture = SubResource("AtlasTexture_3prpm")
+metadata/_custom_type_script = "uid://ctlen0luhpxft"

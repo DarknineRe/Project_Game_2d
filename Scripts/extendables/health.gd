@@ -10,6 +10,7 @@ signal health_changed(health: float)
 @onready var health := max_health
 @onready var unit = get_owner()
 
+
 func on_damaged(attack: Attack):
 	if not unit.alive:
 		return
@@ -26,4 +27,10 @@ func on_damaged(attack: Attack):
 func increase_max_health(amount: float) -> void:
 	max_health += amount
 	health += amount  # instantly give more health
+	health_changed.emit(health)
+	
+func heal(amount: float) -> void:
+	if not unit.alive:
+		return
+	health = min(health + amount, max_health)
 	health_changed.emit(health)
