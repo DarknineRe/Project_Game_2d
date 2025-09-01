@@ -4,6 +4,7 @@ extends Control
 @onready var color_rect: ColorRect = $ColorRect
 @onready var panel_container: PanelContainer = $PanelContainer
 var is_paused: bool = false
+var paused_by_menu: bool = false  # <--- new flag
 
 func _ready() -> void:
 	animation_player.play("RESET")
@@ -14,22 +15,27 @@ func _input(event: InputEvent) -> void:
 		toggle_pause()
 
 func toggle_pause() -> void:
-	is_paused = !is_paused
 	if is_paused:
-		pause_game()
-	else:
 		resume_game()
+	else:
+		pause_game()
 
 func pause_game() -> void:
+	is_paused = true
+	paused_by_menu = not get_tree().paused   # <--- only pause if not already paused
 	show_menu()
-	get_tree().paused = true
+	if paused_by_menu:
+		get_tree().paused = true
 	animation_player.play("Blur")
 
 func resume_game() -> void:
-	get_tree().paused = false
+	is_paused = false
 	animation_player.play_backwards("Blur")
 	await animation_player.animation_finished
 	hide_menu()
+	if paused_by_menu:   # <--- only unpause if *we* paused it
+		get_tree().paused = false
+	paused_by_menu = false
 
 func show_menu() -> void:
 	color_rect.show()

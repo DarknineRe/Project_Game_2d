@@ -27,3 +27,4 @@ func increase_max_health(amount: float) -> void:
 	max_health += amount
 	health += amount  # instantly give more health
 	health_changed.emit(health)
+	

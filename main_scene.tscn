@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://oxa5skj8w1yn"]
+[gd_scene load_steps=120 format=3 uid="uid://oxa5skj8w1yn"]
 
 [ext_resource type="Script" uid="uid://cll1gut310jii" path="res://main_scene.gd" id="1_2c62f"]
 [ext_resource type="PackedScene" uid="uid://ck3ss0rfky61o" path="res://Scene/game_manager.tscn" id="2_gyfs4"]
@@ -22,10 +22,10 @@ tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.32, 2, 2.2, 2.7, 3.06, 3.5, 3.6, 4.5, 5, 5.13333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.32, 2, 2.2, 2.7, 3.06, 3.5, 3.6, 4.5, 5, 5.5, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(66, 393), Vector2(66, 393), Vector2(186.074, 393), Vector2(1103, 393), Vector2(1103, 393), Vector2(1103, 393), Vector2(1015, 393), Vector2(949, 393), Vector2(949, 393), Vector2(42, 393), Vector2(42, 393), Vector2(42, 393)]
+"values": [Vector2(66, 393), Vector2(66, 393), Vector2(186.074, 393), Vector2(1103, 393), Vector2(1103, 393), Vector2(1103, 393), Vector2(1015, 393), Vector2(949, 393), Vector2(949, 393), Vector2(42, 393), Vector2(42, 393), Vector2(42, 393), Vector2(758, 393)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -34,10 +34,10 @@ tracks/1/path = NodePath("Player:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 2, 2.2, 2.7, 3.6, 4.5, 4.6, 5, 5.13333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 2, 2.2, 2.7, 3.6, 4.5, 4.6, 5, 5.5, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -58,10 +58,10 @@ tracks/3/path = NodePath("Player:animation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 2.2, 2.7, 3.5, 4.6, 5, 5.13333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 2.2, 2.7, 3.5, 4.6, 5, 5.13333, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [&"Idle", &"Run", &"Idle", &"Walk", &"Walk", &"Idle", &"Idle", &"Hurt"]
+"values": [&"Idle", &"Run", &"Idle", &"Walk", &"Walk", &"Idle", &"Idle", &"Hurt", &"Run"]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -94,10 +94,10 @@ tracks/6/path = NodePath("Enemy:animation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(2.7, 3.5, 5.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(2.7, 3.5, 5.1, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [&"walk", &"walk", &"Attack"]
+"values": [&"walk", &"walk", &"Attack", &"Hurt"]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -575,6 +575,22 @@ region = Rect2(400, 200, 100, 100)
 atlas = ExtResource("8_mo76n")
 region = Rect2(500, 200, 100, 100)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3hih"]
+atlas = ExtResource("8_mo76n")
+region = Rect2(0, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xevt3"]
+atlas = ExtResource("8_mo76n")
+region = Rect2(100, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im3ns"]
+atlas = ExtResource("8_mo76n")
+region = Rect2(200, 500, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jqx2"]
+atlas = ExtResource("8_mo76n")
+region = Rect2(300, 500, 100, 100)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jip8q"]
 atlas = ExtResource("8_mo76n")
 region = Rect2(0, 0, 100, 100)
@@ -655,6 +671,23 @@ animations = [{
 "loop": true,
 "name": &"Attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3hih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xevt3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im3ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jqx2")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1121,7 +1154,6 @@ scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_ek5vw")
 animation = &"Idle"
 autoplay = "Run"
-frame_progress = 0.357646
 flip_h = true
 
 [node name="Enemy" type="AnimatedSprite2D" parent="CanvasLayer"]
@@ -1139,7 +1171,7 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_36qg2")
 animation = &"!"
 autoplay = "!"
-frame_progress = 0.624943
+frame_progress = 0.750412
 
 [connection signal="pressed" from="CanvasLayer/Start_Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Exit_Button" to="." method="_on_exit_button_pressed"]

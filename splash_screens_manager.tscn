@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bh41hclgpfpw4"]
+[gd_scene load_steps=6 format=3 uid="uid://bh41hclgpfpw4"]
 
 [ext_resource type="Script" uid="uid://cxoeus4jwj8c8" path="res://splash_screens_manager.gd" id="1_cyrd6"]
 [ext_resource type="PackedScene" uid="uid://oxa5skj8w1yn" path="res://main_scene.tscn" id="2_8o7ov"]
 [ext_resource type="Texture2D" uid="uid://hmbvdjvwvl3n" path="res://Art/Logo/letters-dark.png" id="3_8o7ov"]
 [ext_resource type="Texture2D" uid="uid://dy5ocv57ix83m" path="res://Art/Logo/logo2.06d1225.png" id="4_fxcee"]
+[ext_resource type="Texture2D" uid="uid://cxfmoi5m4wo8p" path="res://Art/weapon/Sprite_Bad_Pistol.webp" id="5_8o7ov"]
 
 [node name="Splash Screens Manager" type="Control" node_paths=PackedStringArray("splash_screen_container")]
 layout_mode = 3
@@ -60,3 +61,4 @@ text = "Present"
 
 [node name="Screen3" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
+texture = ExtResource("5_8o7ov")
