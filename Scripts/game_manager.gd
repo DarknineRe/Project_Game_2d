@@ -35,7 +35,6 @@ func spawn_monsters_near_player() -> void:
 	
 	# Decide how many monsters (1–3), but clamp so we don't exceed max_monsters
 	var available_slots = max_monsters - get_monster_count()
-	print("%d"%available_slots)
 	var count_to_spawn = min(randi_range(1, 3), available_slots)
 
 	for i in count_to_spawn:
