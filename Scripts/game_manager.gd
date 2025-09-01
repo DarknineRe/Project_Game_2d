@@ -21,13 +21,21 @@ func _process(delta: float) -> void:
 	spawn_timer -= delta
 	if spawn_timer <= 0:
 		if get_monster_count() < max_monsters:
-			spawn_monster_near_player()
+			spawn_monsters_near_player()
 		spawn_timer = spawn_interval
 
-func spawn_monster_near_player() -> void:
+func spawn_monsters_near_player() -> void:
 	if !player:
 		return
 	
+	# Decide how many monsters (1–3), but clamp so we don't exceed max_monsters
+	var available_slots = max_monsters - get_monster_count()
+	var count_to_spawn = min(randi_range(1, 3), available_slots)
+
+	for i in count_to_spawn:
+		spawn_monster_with_delay()
+
+func spawn_monster_with_delay() -> void:
 	var angle = randf() * TAU
 	var radius = min_spawn_distance + randf() * (spawn_radius - min_spawn_distance)
 	var spawn_pos = player.global_position + Vector2(cos(angle), sin(angle)) * radius
@@ -43,6 +51,7 @@ func spawn_monster_near_player() -> void:
 	# Spawn monster at the same spot
 	var monster = monster_scene.instantiate()
 	monster.position = spawn_pos
+	monster.add_to_group("Monster")
 	add_child(monster)
 
 	# Remove the spawn mark

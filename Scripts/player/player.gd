@@ -13,6 +13,7 @@ var pending_level_ups: Array[int] = []
 var level_up_in_progress := false
 var upgrades : Array[BulletUpgrade] = []
 var player_upgrades: Array[PlayerUpgrade] = []
+var game_time := 0.0
 
 @export var spawn_point: Node2D
 @onready var health_node: Health = $Health
@@ -22,6 +23,7 @@ var player_upgrades: Array[PlayerUpgrade] = []
 @onready var weapon = $WeaponPivot
 @onready var Level = $Camera2D/Level
 @onready var movement: Movement = $Player_Movement
+@onready var timer = $Camera2D/Timer
 # inventory
 @export var inventory: Inventory
 @export var default_weapon: Weapon = preload("res://Scripts/inventory/WeaponEmpty.tres")
@@ -45,6 +47,18 @@ func _ready() -> void:
 			var new_item = InventoryItem.new()
 			new_item.weapon_ref = weapon
 			slot0.item = new_item
+
+
+func _process(delta: float) -> void:
+	if alive: # only count while player is alive
+		game_time += delta
+		_update_timer_label()
+
+
+func _update_timer_label() -> void:
+	var minutes = int(game_time / 60)
+	var seconds = int(game_time) % 60
+	timer.text = "%02d:%02d" % [minutes, seconds]
 
 
 func _on_slot_changed(index: int, item_stack_ui) -> void:

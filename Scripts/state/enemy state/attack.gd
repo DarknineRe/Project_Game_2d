@@ -2,7 +2,7 @@ extends MonsterState
 
 
 var timer : Timer
-
+@export var damage_attack : float = 10.0
 
 # Upon moving to this state, initialize timer
 # and stun enemy
@@ -30,5 +30,5 @@ func on_timer_finished():
 func attack_hit(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		var attack = Attack.new()
-		attack.damage = 10
+		attack.damage = damage_attack
 		body.damage(attack)

@@ -1069,6 +1069,7 @@ sources/3 = SubResource("TileSetAtlasSource_ovyp7")
 [node name="GameManager" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_2bu33")
+max_monsters = 100
 
 [node name="spawnpoint" type="Marker2D" parent="."]
 
