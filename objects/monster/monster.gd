@@ -35,5 +35,5 @@ func on_damaged(attack: Attack) -> void:
 	
 func difficulty():
 	var p = player
-	health.increase_max_health((p.exp_bar.level-1)* 20 + p.game_time)
+	health.increase_max_health((p.exp_bar.level-1)* 20 + p.game_time - 1)
 	attack_node.damage_attack += p.exp_bar.level
