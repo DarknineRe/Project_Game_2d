@@ -33,6 +33,10 @@ Monster=""
 bullet=""
 Exp=""
 
+[gui]
+
+theme/custom_font="uid://brduy2s7pe6i1"
+
 [input]
 
 ui_left={
