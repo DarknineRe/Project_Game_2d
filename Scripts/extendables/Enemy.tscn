@@ -1,9 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bi8flmtslm61d"]
+[gd_scene load_steps=5 format=3 uid="uid://bi8flmtslm61d"]
 
+[ext_resource type="Script" uid="uid://bv1oeapcr5rb1" path="res://Scripts/extendables/hurtbox.gd" id="1_e0ba3"]
 [ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/extendables/health.gd" id="1_g6dyo"]
+[ext_resource type="Script" uid="uid://cxqn24exvp8cj" path="res://Scripts/state/monster_state.gd" id="3_3ptt0"]
+[ext_resource type="Script" uid="uid://cxsxwmnpd1f4" path="res://UI/HP bar/hpbar.gd" id="4_782gk"]
 
-[node name="Actor" type="Node2D"]
-script = ExtResource("1_g6dyo")
+[node name="Enemy" type="CharacterBody2D"]
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource("1_e0ba3")
+metadata/_custom_type_script = "uid://bv1oeapcr5rb1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Health" type="Node" parent="."]
 script = ExtResource("1_g6dyo")
+metadata/_custom_type_script = "uid://crkf2vlfo4a04"
+
+[node name="MonsterState" type="Node" parent="."]
+script = ExtResource("3_3ptt0")
+metadata/_custom_type_script = "uid://cxqn24exvp8cj"
+
+[node name="HPbar" type="ProgressBar" parent="."]
+offset_right = 4.0
+offset_bottom = 27.0
+script = ExtResource("4_782gk")
+metadata/_custom_type_script = "uid://cxsxwmnpd1f4"
