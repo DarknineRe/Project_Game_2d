@@ -3,7 +3,10 @@ extends Node2D
 @onready var player: Player = $Player
 @onready var spawnpoint: Node2D = $spawnpoint
 
-@export var monster_scene: PackedScene = preload("res://scene/monster.tscn")
+@export var monster_scenes: Array[PackedScene] = [
+	preload("res://Scene/monster_archer.tscn"),
+	preload("res://Scene/monster.tscn")
+]
 @export var spawn_mark_scene: PackedScene = preload("res://scene/spawn_mark.tscn")
 @export var spawn_radius: float = 1000.0
 @export var min_spawn_distance: float = 100.0
@@ -49,7 +52,8 @@ func spawn_monster_with_delay() -> void:
 	await get_tree().create_timer(spawn_delay).timeout
 
 	# Spawn monster at the same spot
-	var monster = monster_scene.instantiate()
+	var scene = monster_scenes.pick_random()
+	var monster = scene.instantiate()
 	monster.position = spawn_pos
 	monster.add_to_group("Monster")
 	add_child(monster)

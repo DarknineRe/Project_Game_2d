@@ -226,7 +226,7 @@ collision_layer = 4
 collision_mask = 196
 script = ExtResource("1_fnnf6")
 chase_radius = 3000.0
-attack_range = 5000.0
+attack_range = 600.0
 
 [node name="this is archer (will change later)" type="Node" parent="."]
 
@@ -251,6 +251,7 @@ autoplay = "idle"
 
 [node name="Monster_HurtboxArea" type="Area2D" parent="." groups=["Monster"]]
 collision_layer = 128
+collision_mask = 128
 script = ExtResource("3_owdcf")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="Monster_HurtboxArea" groups=["Monster"]]

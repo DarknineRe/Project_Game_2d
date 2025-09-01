@@ -2,7 +2,7 @@ extends MonsterState
 
 
 var timer : Timer
-@export var damage_attack : float = 10.0
+@export var damage_attack : float = 10
 
 # Upon moving to this state, initialize timer
 # and stun enemy
@@ -12,12 +12,15 @@ func enter():
 
 func shoot_arrow():
 	
-	print("arrow shot")
-	
 	var arrow = preload("res://normal_enemy_bullet.tscn").instantiate()
-	var direction := player.global_position - enemy.global_position
+	
+	arrow.damage = damage_attack
+	
+	var direction := (player.global_position - enemy.global_position).normalized()
+	
 	arrow.global_position = enemy.global_position
-	arrow.direction = (player.global_position - enemy.global_position).normalized()
+	arrow.direction = direction
+	arrow.rotation = direction.angle() # 🔥 make arrow point towards player
 	
 	add_child(arrow)
 	

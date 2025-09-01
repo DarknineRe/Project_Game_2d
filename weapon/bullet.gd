@@ -3,7 +3,7 @@ extends Node2D
 
 var speed: float = 800.0
 var lifetime: float = 2.0
-var crit_chance: float = 100
+var crit_chance: float = 0
 var crit_mult: float = 2
 var damage: float = 1.0
 var max_pierce: int = 1
