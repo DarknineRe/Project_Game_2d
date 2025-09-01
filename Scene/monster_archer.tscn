@@ -215,7 +215,7 @@ attack_range = 600.0
 
 [node name="this is archer (will change later)" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Monster"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v4wv7")
@@ -234,12 +234,12 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="Monster_HurtboxArea" type="Area2D" parent="." groups=["Monster"]]
+[node name="Monster_HurtboxArea" type="Area2D" parent="."]
 collision_layer = 128
 collision_mask = 128
 script = ExtResource("3_owdcf")
 
-[node name="Hurtbox" type="CollisionShape2D" parent="Monster_HurtboxArea" groups=["Monster"]]
+[node name="Hurtbox" type="CollisionShape2D" parent="Monster_HurtboxArea"]
 position = Vector2(-0.333333, -3.375)
 shape = SubResource("RectangleShape2D_ga5te")
 

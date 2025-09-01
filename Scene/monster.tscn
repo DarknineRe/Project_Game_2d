@@ -239,7 +239,7 @@ collision_mask = 196
 script = ExtResource("1_mrqeg")
 chase_radius = 3000.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Monster"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v4wv7")
@@ -264,11 +264,11 @@ autoplay = "idle"
 shape = SubResource("CircleShape2D_y3pn2")
 disabled = true
 
-[node name="Monster_HurtboxArea" type="Area2D" parent="." groups=["Monster"]]
+[node name="Monster_HurtboxArea" type="Area2D" parent="."]
 collision_layer = 128
 script = ExtResource("2_v4wv7")
 
-[node name="Hurtbox" type="CollisionShape2D" parent="Monster_HurtboxArea" groups=["Monster"]]
+[node name="Hurtbox" type="CollisionShape2D" parent="Monster_HurtboxArea"]
 position = Vector2(-0.333333, -3.375)
 shape = SubResource("RectangleShape2D_ga5te")
 

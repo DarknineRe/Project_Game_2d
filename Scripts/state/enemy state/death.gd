@@ -4,7 +4,7 @@ var ExpOrbScene = preload("res://scene/exp.tscn")
 
 func enter():
 	var total_exp = randi() % 16 + 10  # 10–25 EXP
-
+	Drop.drop_item(enemy.global_position)
 	while total_exp >= 10:
 		_spawn_orb(10)
 		total_exp -= 10

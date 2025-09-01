@@ -14,11 +14,6 @@ extends Node2D
 @export var max_monsters: int = 10
 @export var spawn_delay: float = 1.5   # time to show mark before monster spawns
 
-@export var potion_scene: PackedScene = preload("res://inventory/items/potion.tscn")
-@export var potion_spawn_interval: float = 10.0   # เวลาสุ่มเกิดโพชั่น
-@export var max_potions: int = 3                  # จำกัดจำนวนโพชั่นที่อยู่ในฉาก
-var potion_timer := 0.0
-
 var spawn_timer := 0.0
 
 
@@ -30,14 +25,9 @@ func _process(delta: float) -> void:
 	spawn_timer -= delta
 	if spawn_timer <= 0:
 		if get_monster_count() < max_monsters:
+			
 			spawn_monsters_near_player()
 		spawn_timer = spawn_interval
-		
-	potion_timer -= delta
-	if potion_timer <= 0:
-		if get_potion_count() < max_potions:
-			spawn_potion()
-		potion_timer = potion_spawn_interval
 
 func spawn_monsters_near_player() -> void:
 	if !player:
@@ -45,6 +35,7 @@ func spawn_monsters_near_player() -> void:
 	
 	# Decide how many monsters (1–3), but clamp so we don't exceed max_monsters
 	var available_slots = max_monsters - get_monster_count()
+	print("%d"%available_slots)
 	var count_to_spawn = min(randi_range(1, 3), available_slots)
 
 	for i in count_to_spawn:
@@ -75,21 +66,3 @@ func spawn_monster_with_delay() -> void:
 
 func get_monster_count() -> int:
 	return get_tree().get_nodes_in_group("Monster").size()
-
-
-func spawn_potion() -> void:
-	if !player or potion_scene == null:
-		return
-
-	# สุ่มตำแหน่งใกล้ผู้เล่น
-	var angle = randf() * TAU
-	var radius = randf_range(min_spawn_distance, spawn_radius)
-	var spawn_pos = player.global_position + Vector2(cos(angle), sin(angle)) * radius
-
-	var potion = potion_scene.instantiate()
-	potion.position = spawn_pos
-	potion.add_to_group("Potion")
-	add_child(potion)
-	
-func get_potion_count() -> int:
-	return get_tree().get_nodes_in_group("Potion").size()

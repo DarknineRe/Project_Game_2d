@@ -19,6 +19,7 @@ config/icon="uid://cxfmoi5m4wo8p"
 
 DamageNumbers="*res://Global Load/DamageNumbers.gd"
 AudioManager="*res://audio_manager.gd"
+Drop="*res://drop.gd"
 
 [display]
 

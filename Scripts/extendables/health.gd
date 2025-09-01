@@ -29,11 +29,9 @@ func increase_max_health(amount: float) -> void:
 	health += amount  # instantly give more health
 	health_changed.emit(health)
 	
-<<<<<<< HEAD
+
 func heal(amount: float) -> void:
 	if not unit.alive:
 		return
 	health = min(health + amount, max_health)
 	health_changed.emit(health)
-=======
->>>>>>> main
