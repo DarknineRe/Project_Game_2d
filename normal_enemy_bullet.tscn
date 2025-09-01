@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3pwjnoxr6qgk"]
+
+[ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/laser bullet/normal bullet/normal_bullet_type.tscn" id="1_17bi2"]
+[ext_resource type="Texture2D" uid="uid://bnm0dkq0iv051" path="res://Art/weapon/Arrow.png" id="2_jgvsu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om02t"]
+size = Vector2(17.6667, 2.33333)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t26ul"]
+size = Vector2(20, 3.66667)
+
+[node name="NormalEnemyBullet" instance=ExtResource("1_17bi2")]
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_jgvsu")
+region_enabled = false
+
+[node name="Floor Collision" parent="." index="1"]
+position = Vector2(1.16667, 0.833333)
+shape = SubResource("RectangleShape2D_om02t")
+
+[node name="CollisionShape2D" parent="BulletHitbox" index="0"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t26ul")
