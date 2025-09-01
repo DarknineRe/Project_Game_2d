@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=19 format=4 uid="uid://ck3ss0rfky61o"]
+=======
+[gd_scene load_steps=17 format=4 uid="uid://ck3ss0rfky61o"]
+>>>>>>> main
 
 [ext_resource type="Script" uid="uid://d2mqa5c7yjtbh" path="res://Scripts/game_manager.gd" id="1_2bu33"]
 [ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://Scene/player.tscn" id="1_e5k1s"]
@@ -9,7 +13,6 @@
 [ext_resource type="Resource" uid="uid://08gqui53j6g2" path="res://resources/weapon tres/guns tres/Arbitrator.tres" id="11_llyhm"]
 [ext_resource type="Resource" uid="uid://0drhxn5ubc5l" path="res://resources/weapon tres/guns tres/sniper_rifle.tres" id="12_1g63r"]
 [ext_resource type="PackedScene" uid="uid://btihsn66vl7j2" path="res://Scripts/inventory/InventoryUI.tscn" id="12_llyhm"]
-[ext_resource type="PackedScene" uid="uid://c0va0dlncfwp7" path="res://Scene/monster_archer.tscn" id="12_m51ev"]
 [ext_resource type="Script" uid="uid://22qj7qe1ccih" path="res://Scripts/inventory/canvas_layer.gd" id="12_vp4th"]
 [ext_resource type="PackedScene" uid="uid://bg8jkxl7qhs72" path="res://inventory/items/potion.tscn" id="13_1g63r"]
 [ext_resource type="PackedScene" uid="uid://dni73yy5fu3kf" path="res://Scripts/inventory/hotbar.tscn" id="15_m51ev"]
@@ -1130,9 +1133,12 @@ offset_bottom = -182.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
+<<<<<<< HEAD
 
 [node name="Monster_Archer" parent="." instance=ExtResource("12_m51ev")]
 position = Vector2(-921, -174)
 
 [node name="Potion" parent="." instance=ExtResource("13_1g63r")]
 position = Vector2(-229, 207)
+=======
+>>>>>>> main
