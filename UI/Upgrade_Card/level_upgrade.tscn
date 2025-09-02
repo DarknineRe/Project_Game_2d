@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b2rt1qkvjp0y2"]
+[gd_scene load_steps=58 format=3 uid="uid://b2rt1qkvjp0y2"]
 
 [ext_resource type="Script" uid="uid://cg87yvwiipiq" path="res://UI/Upgrade_Card/level_upgrade.gd" id="1_0p84y"]
 [ext_resource type="PackedScene" uid="uid://bcrnweqc8k1ff" path="res://UI/Upgrade_Card/upgrade_panel.tscn" id="2_7fetl"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://uyq7wtxef6ni" path="res://objects/upgrade/bullet_upgrade_damage.gd" id="5_6gfgj"]
 [ext_resource type="Script" uid="uid://0mkgsh2l11eb" path="res://objects/upgrade/player_upgrade.gd" id="5_7fetl"]
 [ext_resource type="Texture2D" uid="uid://btmmd5aly1wie" path="res://Art/weapon/upgrade.png" id="5_xw3mv"]
+[ext_resource type="Script" uid="uid://dtubmh57j3wkd" path="res://objects/upgrade/bullet_upgrade_all_star.gd" id="6_rrbof"]
 [ext_resource type="Script" uid="uid://b580bq1ggooop" path="res://objects/upgrade/player_upgrade_all_star.gd" id="6_xw3mv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rrbof"]
@@ -20,6 +21,50 @@ texture = SubResource("AtlasTexture_rrbof")
 description = "+10 Bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j34n"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(224, 1328, 16, 16)
+
+[sub_resource type="Resource" id="Resource_ejbi3"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 100.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 0.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_3j34n")
+description = "+ 10 Bullet Speed"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n47hl"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(128, 1328, 16, 16)
+
+[sub_resource type="Resource" id="Resource_74lhs"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 0.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 1.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_n47hl")
+description = "+ 1 Bullet Crit Chance"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gfgj"]
 atlas = ExtResource("5_xw3mv")
 region = Rect2(96, 1248, 16, 16)
@@ -31,6 +76,72 @@ damage_add = 20.0
 texture = SubResource("AtlasTexture_6gfgj")
 description = "+ 20 Bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umy0c"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(64, 1264, 16, 16)
+
+[sub_resource type="Resource" id="Resource_wvcbj"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 200.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 0.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_umy0c")
+description = "+ 20 Bullet Speed"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8mro"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(224, 1248, 16, 16)
+
+[sub_resource type="Resource" id="Resource_r0du2"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 0.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 5.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_e8mro")
+description = "+ 5 % Bullet Crit Chance"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caupf"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(144, 1296, 16, 16)
+
+[sub_resource type="Resource" id="Resource_fytlp"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 0.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 0.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.1
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_caupf")
+description = "+ 10 % Bullet Crit Damage"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahlcf"]
 atlas = ExtResource("5_xw3mv")
@@ -44,6 +155,72 @@ texture = SubResource("AtlasTexture_ahlcf")
 description = "+ 30 bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nhip"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(32, 1200, 16, 16)
+
+[sub_resource type="Resource" id="Resource_e8mro"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 300.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 0.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_6nhip")
+description = "+ 30 Bullet Speed"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fytlp"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(80, 1232, 16, 16)
+
+[sub_resource type="Resource" id="Resource_umy0c"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = -10.0
+speed_add = 0.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 20.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_fytlp")
+description = "+ 20 Bullet Crit Chance - 10 Bullet Damage"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fd63u"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(192, 1184, 16, 16)
+
+[sub_resource type="Resource" id="Resource_6nhip"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 0.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 0.0
+crit_chance_mult = -20.0
+crit_mult_add = 0.5
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_fd63u")
+description = "+ 50 % Bullet Crit Damage - 20 Bullet Crit Chance"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_428hx"]
 atlas = ExtResource("5_xw3mv")
 region = Rect2(32, 1120, 16, 16)
@@ -55,6 +232,54 @@ damage_add = 50.0
 texture = SubResource("AtlasTexture_428hx")
 description = "+ 50 Bullet Damage"
 metadata/_custom_type_script = "uid://uyq7wtxef6ni"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0du2"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(0, 1136, 16, 16)
+
+[sub_resource type="Resource" id="Resource_caupf"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = 0.0
+speed_add = 500.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 0.0
+crit_chance_mult = 1.0
+crit_mult_add = 0.0
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_r0du2")
+description = "+ 50 Bullet Speed"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g727y"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(48, 1168, 16, 16)
+
+[sub_resource type="Resource" id="Resource_0wda0"]
+script = ExtResource("6_rrbof")
+damage_mult = 1.0
+damage_add = -10.0
+speed_add = 0.0
+speed_mult = 1.0
+lifetime_add = 0.0
+crit_chance_add = 50.0
+crit_chance_mult = 1.0
+crit_mult_add = -0.1
+crit_mult_mult = 1.0
+max_pierce_add = 0
+fire_rate_add = 0.0
+fire_rate_mult = 1.0
+texture = SubResource("AtlasTexture_g727y")
+description = "+ 50 Bullet Crit Chance - 10 Bullet Damage - 10% Bullet Crit Damage"
+metadata/_custom_type_script = "uid://dtubmh57j3wkd"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ivco"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(0, 1072, 16, 16)
 
 [sub_resource type="Resource" id="Resource_7fetl"]
 script = ExtResource("6_xw3mv")
@@ -70,8 +295,13 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_3ivco")
 description = "+ 10 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wda0"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(160, 656, 16, 16)
 
 [sub_resource type="Resource" id="Resource_88c1t"]
 script = ExtResource("6_xw3mv")
@@ -87,8 +317,35 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_0wda0")
 description = "+ 100 speed"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eb3t"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(160, 624, 16, 16)
+
+[sub_resource type="Resource" id="Resource_irus6"]
+script = ExtResource("6_xw3mv")
+health_add = 0.0
+health_mult = 1.0
+speed_add = 0.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 10.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_2eb3t")
+description = "+ 10 Player Stamina"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88c1t"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(0, 1072, 16, 16)
 
 [sub_resource type="Resource" id="Resource_xw3mv"]
 script = ExtResource("6_xw3mv")
@@ -104,8 +361,35 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_88c1t")
 description = "+ 20 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c5iq"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(160, 656, 16, 16)
+
+[sub_resource type="Resource" id="Resource_7ant0"]
+script = ExtResource("6_xw3mv")
+health_add = 0.0
+health_mult = 1.0
+speed_add = 150.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 0.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_0c5iq")
+description = "+ 15 Player Speed"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejbi3"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(0, 1072, 16, 16)
 
 [sub_resource type="Resource" id="Resource_3j34n"]
 script = ExtResource("6_xw3mv")
@@ -121,8 +405,52 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_ejbi3")
 description = "+ 30 Max Health"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10qwk"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(160, 656, 16, 16)
+
+[sub_resource type="Resource" id="Resource_2eb3t"]
+script = ExtResource("6_xw3mv")
+health_add = 0.0
+health_mult = 1.0
+speed_add = 200.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 0.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_10qwk")
+description = "+ 20 Player Speed"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="Resource" id="Resource_g727y"]
+script = ExtResource("6_xw3mv")
+health_add = 10.0
+health_mult = 1.0
+speed_add = 100.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 0.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+description = "+ 10 Player Health + 10 Player Speed"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvcbj"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(0, 1072, 16, 16)
 
 [sub_resource type="Resource" id="Resource_3ivco"]
 script = ExtResource("6_xw3mv")
@@ -138,7 +466,52 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_wvcbj")
 description = "+ 50 Max Health"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irus6"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(160, 656, 16, 16)
+
+[sub_resource type="Resource" id="Resource_n47hl"]
+script = ExtResource("6_xw3mv")
+health_add = 0.0
+health_mult = 1.0
+speed_add = 400.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 0.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_irus6")
+description = "+ 40 Player Speed"
+metadata/_custom_type_script = "uid://b580bq1ggooop"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ant0"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(96, 1120, 16, 16)
+
+[sub_resource type="Resource" id="Resource_fd63u"]
+script = ExtResource("6_xw3mv")
+health_add = 300.0
+health_mult = 1.0
+speed_add = -500.0
+speed_mult = 1.0
+sprint_mult_add = 0.0
+sprint_mult_mult = 1.0
+dash_mult_add = 0.0
+dash_mult_mult = 1.0
+stamina_add = 0.0
+stamina_mult = 1.0
+dash_cost_add = 0.0
+dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_7ant0")
+description = "+ 300 Player Health - 50 Player Speed"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
 [node name="Level_Upgrade" type="Control"]
@@ -152,14 +525,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0p84y")
 upgrade_panel_scene = ExtResource("2_7fetl")
-common_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_rrbof")])
-rare_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_6gfgj")])
-epic_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_ahlcf")])
-legendary_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_428hx")])
-common_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_7fetl"), SubResource("Resource_88c1t")])
-rare_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_xw3mv")])
-epic_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3j34n")])
-legendary_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3ivco")])
+common_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_rrbof"), SubResource("Resource_ejbi3"), SubResource("Resource_74lhs")])
+rare_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_6gfgj"), SubResource("Resource_wvcbj"), SubResource("Resource_r0du2"), SubResource("Resource_fytlp")])
+epic_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_ahlcf"), SubResource("Resource_e8mro"), SubResource("Resource_umy0c"), SubResource("Resource_6nhip")])
+legendary_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_428hx"), SubResource("Resource_caupf"), SubResource("Resource_0wda0")])
+common_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_7fetl"), SubResource("Resource_88c1t"), SubResource("Resource_irus6")])
+rare_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_xw3mv"), SubResource("Resource_7ant0")])
+epic_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3j34n"), SubResource("Resource_2eb3t"), SubResource("Resource_g727y")])
+legendary_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3ivco"), SubResource("Resource_n47hl"), SubResource("Resource_fd63u")])
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
