@@ -40,7 +40,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(70, 200)
+custom_minimum_size = Vector2(80, 200)
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
