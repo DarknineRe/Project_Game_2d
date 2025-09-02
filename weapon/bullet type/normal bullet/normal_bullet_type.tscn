@@ -8,7 +8,7 @@
 radius = 4.66667
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xmjb"]
-radius = 4.33333
+radius = 5.33333
 
 [node name="NormalBullet" type="CharacterBody2D"]
 z_index = 1

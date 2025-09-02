@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b2rt1qkvjp0y2"]
+[gd_scene load_steps=57 format=3 uid="uid://b2rt1qkvjp0y2"]
 
 [ext_resource type="Script" uid="uid://cg87yvwiipiq" path="res://UI/Upgrade_Card/level_upgrade.gd" id="1_0p84y"]
 [ext_resource type="PackedScene" uid="uid://bcrnweqc8k1ff" path="res://UI/Upgrade_Card/upgrade_panel.tscn" id="2_7fetl"]
@@ -409,6 +409,10 @@ texture = SubResource("AtlasTexture_10qwk")
 description = "+ 20 Player Speed"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2eb3t"]
+atlas = ExtResource("5_xw3mv")
+region = Rect2(16, 1040, 16, 16)
+
 [sub_resource type="Resource" id="Resource_g727y"]
 script = ExtResource("6_xw3mv")
 health_add = 10.0
@@ -423,6 +427,7 @@ stamina_add = 0.0
 stamina_mult = 1.0
 dash_cost_add = 0.0
 dash_cost_mult = 1.0
+texture = SubResource("AtlasTexture_2eb3t")
 description = "+ 10 Player Health + 10 Player Speed"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 

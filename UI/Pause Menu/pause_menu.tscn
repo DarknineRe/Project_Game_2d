@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://3xw2h1msw6x7"]
+[gd_scene load_steps=9 format=3 uid="uid://3xw2h1msw6x7"]
 
 [ext_resource type="Script" uid="uid://bpr0vml6quw7g" path="res://UI/Pause Menu/pause_menu.gd" id="1_nwcfo"]
 [ext_resource type="Shader" uid="uid://deqi7g0o7q0e" path="res://UI/Pause Menu/pause_menu.gdshader" id="2_05uyy"]
 [ext_resource type="Texture2D" uid="uid://jm3csc1ki7q2" path="res://Art/Font/icons8-menu-50 (1).png" id="2_p81d2"]
+[ext_resource type="PackedScene" uid="uid://b4ie6rl6k8udx" path="res://setting_menu.tscn" id="4_q706g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
 shader = ExtResource("2_05uyy")
@@ -128,7 +129,7 @@ scale = Vector2(0.7, 0.7)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 40
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/VBoxContainer"]
@@ -141,6 +142,11 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Restart"
 
+[node name="settiing" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Setting"
+
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
@@ -151,7 +157,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_mxa3g")
 }
 
+[node name="Setting_Menu" parent="." instance=ExtResource("4_q706g")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -191.0
+offset_right = -276.0
+offset_bottom = -191.0
+
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/settiing" to="." method="_on_settiing_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

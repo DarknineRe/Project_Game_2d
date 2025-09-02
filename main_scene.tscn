@@ -1,8 +1,9 @@
-[gd_scene load_steps=128 format=3 uid="uid://oxa5skj8w1yn"]
+[gd_scene load_steps=129 format=3 uid="uid://oxa5skj8w1yn"]
 
 [ext_resource type="Script" uid="uid://cll1gut310jii" path="res://main_scene.gd" id="1_2c62f"]
 [ext_resource type="PackedScene" uid="uid://ck3ss0rfky61o" path="res://Scene/game_manager.tscn" id="2_gyfs4"]
 [ext_resource type="Texture2D" uid="uid://cgjroyh50eg3x" path="res://Art/Character/Player/death.png" id="3_66tet"]
+[ext_resource type="PackedScene" uid="uid://b4ie6rl6k8udx" path="res://setting_menu.tscn" id="3_mo76n"]
 [ext_resource type="Texture2D" uid="uid://dlmqohhu643uu" path="res://Art/Character/Player/hurt.png" id="4_7ycvg"]
 [ext_resource type="Texture2D" uid="uid://bdkxa7akou77p" path="res://Art/Character/Player/idle.png" id="5_wr18j"]
 [ext_resource type="Texture2D" uid="uid://i2hie3g8fgxd" path="res://Art/Character/Player/run.png" id="6_qwutr"]
@@ -1219,6 +1220,7 @@ _data = {
 [node name="Main_Scene" type="Node2D"]
 script = ExtResource("1_2c62f")
 load_screen = ExtResource("2_gyfs4")
+options_scene = ExtResource("3_mo76n")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1251,15 +1253,23 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Start"
 
+[node name="Option_Button" type="Button" parent="CanvasLayer"]
+offset_left = 477.0
+offset_top = 432.0
+offset_right = 677.0
+offset_bottom = 507.0
+theme_override_font_sizes/font_size = 40
+text = "Setting"
+
 [node name="Exit_Button" type="Button" parent="CanvasLayer"]
 z_index = 5
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -99.0
-offset_top = 448.0
+offset_top = 541.0
 offset_right = 101.0
-offset_bottom = 523.0
+offset_bottom = 616.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Exit"
@@ -1317,5 +1327,14 @@ scale = Vector2(1.2, 1.2)
 mouse_filter = 2
 texture = ExtResource("12_671wp")
 
+[node name="Setting_Menu" parent="CanvasLayer" instance=ExtResource("3_mo76n")]
+visible = false
+z_index = 22
+offset_left = 282.0
+offset_top = 156.0
+offset_right = -272.0
+offset_bottom = -132.0
+
 [connection signal="pressed" from="CanvasLayer/Start_Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Option_Button" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Exit_Button" to="." method="_on_exit_button_pressed"]

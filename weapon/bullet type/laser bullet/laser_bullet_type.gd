@@ -31,7 +31,7 @@ func _ready():
 
 
 # --- Update Beam with Wavy Flicker ---
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	_update_beam()
 
 
