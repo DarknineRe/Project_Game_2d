@@ -8,7 +8,7 @@ func enter():
 	await animation_player.animation_finished
 	owner.queue_free()
 	
-	var total_exp = randi() % 100 + 200 
+	var total_exp = randi() % 100
 	Drop.drop_item(boss.global_position)
 	while total_exp >= 10:
 		_spawn_orb(10)

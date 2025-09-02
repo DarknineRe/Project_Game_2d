@@ -1,7 +1,6 @@
 extends Bullet
  
 
-@onready var animated_sprite = $AnimatedSprite2D
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
 var current_pierce_count := 0 
@@ -35,7 +34,7 @@ func _physics_process(delta):
 	rotation = velocity.angle()
  
  
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	queue_free()
 
 func on_enemy_hit():
