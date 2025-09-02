@@ -1,16 +1,8 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=3 uid="uid://dcyl3ccg05fuo"]
 
 [ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/normal bullet/normal_bullet_type.tscn" id="1_1gr3v"]
 [ext_resource type="Script" uid="uid://cfwyna4lnjtgb" path="res://homing_bullet.gd" id="2_hnscc"]
 [ext_resource type="Texture2D" path="res://Art/Character/Enemy/Boss/arm_projectile.png" id="2_ocplv"]
-=======
-[gd_scene load_steps=4 format=3 uid="uid://b4jp05l773jt8"]
-
-[ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/normal bullet/normal_bullet_type.tscn" id="1_1gr3v"]
-[ext_resource type="Script" uid="uid://bqwogthaagr8p" path="res://homing_bullet.gd" id="2_hnscc"]
-[ext_resource type="Texture2D" uid="uid://b4ynjo38fhl5s" path="res://Art/Character/Enemy/Boss/arm_projectile.png" id="2_ocplv"]
->>>>>>> Stashed changes
 
 [node name="HomingMissiles" instance=ExtResource("1_1gr3v")]
 scale = Vector2(12, 12)
