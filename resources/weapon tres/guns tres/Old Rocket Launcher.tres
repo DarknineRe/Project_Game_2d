@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Gun" load_steps=4 format=3 uid="uid://bhgr3h5kdd4ij"]
+
+[ext_resource type="Script" uid="uid://cvpltik0au1mi" path="res://weapon/gun.gd" id="1_kw03t"]
+[ext_resource type="PackedScene" uid="uid://d4cef2i7y7o66" path="res://weapon/bullet type/explosion bullet/explosion_bullet_type.tscn" id="1_t6ie4"]
+[ext_resource type="Texture2D" uid="uid://bm3c88ui846on" path="res://Art/weapon/Sprite_Bazooka-removebg-preview.png" id="3_6jx70"]
+
+[resource]
+script = ExtResource("1_kw03t")
+bullet_speed = 800.0
+bullet_lifetime = 2.0
+max_pierce = -1
+fire_rate = 2.0
+bullet_type = ExtResource("1_t6ie4")
+name = ""
+damage = 50.0
+crit_chance = 1.0
+crit_mult = 2.0
+texture = ExtResource("3_6jx70")
+metadata/_custom_type_script = "uid://cvpltik0au1mi"
