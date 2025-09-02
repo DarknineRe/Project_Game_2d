@@ -1,0 +1,493 @@
+[gd_scene load_steps=32 format=3 uid="uid://dltcmrnfvnqi0"]
+
+[ext_resource type="Script" uid="uid://dk1rk5q5jvkig" path="res://boss.gd" id="1_ef0k6"]
+[ext_resource type="Texture2D" path="res://Art/Character/Enemy/Boss/Character_sheet.png" id="1_o1i15"]
+[ext_resource type="Texture2D" path="res://Art/Character/Enemy/Boss/Laser_sheet.png" id="2_we8h1"]
+[ext_resource type="PackedScene" uid="uid://c18522k280og1" path="res://UI/HP bar/hpbar.tscn" id="3_we8h1"]
+[ext_resource type="Script" uid="uid://crkf2vlfo4a04" path="res://Scripts/extendables/health.gd" id="4_ef0k6"]
+[ext_resource type="Script" uid="uid://bjv1jeys0wqgg" path="res://Scripts/extendables/hitbox.gd" id="5_ry61v"]
+[ext_resource type="Script" uid="uid://bk2x3pbqtrlg4" path="res://finite_state_machine.gd" id="6_we8h1"]
+[ext_resource type="Script" uid="uid://c3iay6brtbiec" path="res://idle.gd" id="8_km2bi"]
+[ext_resource type="Script" uid="uid://b5uln55pano6k" path="res://follow.gd" id="9_u0duv"]
+[ext_resource type="Script" uid="uid://bmttf00q4olmg" path="res://melee_attack.gd" id="10_lc4na"]
+[ext_resource type="Script" uid="uid://c4jjax11rxtqj" path="res://homing_missile.gd" id="11_8arul"]
+[ext_resource type="Script" uid="uid://i67wxu0626in" path="res://laser_beam.gd" id="12_3d2wm"]
+[ext_resource type="PackedScene" path="res://homing_missiles.tscn" id="12_u0duv"]
+[ext_resource type="Script" uid="uid://bg4i5jpqpejal" path="res://dash.gd" id="13_rrd6h"]
+[ext_resource type="Script" uid="uid://dy83yl0fofklh" path="res://death.gd" id="14_km2bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1i15"]
+size = Vector2(62, 34.6667)
+
+[sub_resource type="Animation" id="Animation_kles1"]
+resource_name = "laser"
+length = 1.75001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625, 1.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/LaserAttack/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.07837, 1.12839, 1.61863),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_etj48"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pivot/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeAttack/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("pivot/LaserAttack/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_h3lj5"]
+resource_name = "idle"
+length = 0.500013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1s1j2"]
+resource_name = "glowing"
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_km2bi"]
+resource_name = "ranged_attack"
+length = 1.12501
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2), Vector2i(7, 2), Vector2i(8, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_u0duv"]
+resource_name = "melee_attack"
+length = 0.875013
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MeleeAttack/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.735101, 0.750493, 0.867853),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_lc4na"]
+resource_name = "block"
+length = 1.00001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3), Vector2i(7, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_8arul"]
+resource_name = "laser_cast"
+length = 0.875013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(6, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_3d2wm"]
+resource_name = "armor_buff"
+length = 1.25001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6), Vector2i(5, 6), Vector2i(6, 6), Vector2i(7, 6), Vector2i(8, 6), Vector2i(9, 6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_rrd6h"]
+resource_name = "death"
+length = 1.75001
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1, 1.125, 1.25, 1.375, 1.5, 1.625),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7), Vector2i(6, 7), Vector2i(7, 7), Vector2i(8, 7), Vector2i(9, 7), Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8), Vector2i(3, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("pivot/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7g8a4"]
+_data = {
+&"RESET": SubResource("Animation_etj48"),
+&"armor_buff": SubResource("Animation_3d2wm"),
+&"block": SubResource("Animation_lc4na"),
+&"death": SubResource("Animation_rrd6h"),
+&"glowing": SubResource("Animation_1s1j2"),
+&"idle": SubResource("Animation_h3lj5"),
+&"laser": SubResource("Animation_kles1"),
+&"laser_cast": SubResource("Animation_8arul"),
+&"melee_attack": SubResource("Animation_u0duv"),
+&"ranged_attack": SubResource("Animation_km2bi")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0duv"]
+size = Vector2(493.667, 35.6667)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u0duv"]
+radius = 145.255
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_km2bi"]
+radius = 442.003
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_r8fku"]
+radius = 33.0
+height = 134.0
+
+[node name="Boss" type="CharacterBody2D"]
+scale = Vector2(3, 3)
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_ef0k6")
+
+[node name="debug" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -26.0
+offset_top = -103.0
+offset_right = 26.0
+offset_bottom = -86.0
+grow_horizontal = 2
+text = "STATE"
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 39.6667)
+shape = SubResource("RectangleShape2D_o1i15")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_o1i15")
+hframes = 10
+vframes = 10
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7g8a4")
+}
+autoplay = "idle"
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(7, -50)
+
+[node name="LaserAttack" type="Area2D" parent="pivot"]
+position = Vector2(2.0504e-05, 0)
+scale = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pivot/LaserAttack"]
+position = Vector2(236.833, 0.16666)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_u0duv")
+disabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="pivot"]
+position = Vector2(191, 33)
+scale = Vector2(1.95907, 1.95907)
+texture = ExtResource("2_we8h1")
+vframes = 15
+
+[node name="Hpbar" parent="." node_paths=PackedStringArray("HPnode") instance=ExtResource("3_we8h1")]
+offset_left = -126.0
+offset_top = 66.0
+offset_right = 379.0
+offset_bottom = 89.0
+scale = Vector2(0.5, 0.5)
+HPnode = NodePath("../Health")
+metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hitbox")]
+script = ExtResource("4_ef0k6")
+max_health = 1000.0
+hitbox = NodePath("../Hitbox")
+
+[node name="MeleeAttack" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleeAttack"]
+shape = SubResource("CircleShape2D_u0duv")
+disabled = true
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+shape = SubResource("CircleShape2D_km2bi")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 128
+script = ExtResource("5_ry61v")
+metadata/_custom_type_script = "uid://bjv1jeys0wqgg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_r8fku")
+
+[node name="FiniteStateMachine" type="Node" parent="."]
+script = ExtResource("6_we8h1")
+
+[node name="Idle" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("8_km2bi")
+
+[node name="Follow" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("9_u0duv")
+
+[node name="MeleeAttack" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("10_lc4na")
+
+[node name="HomingMissile" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("11_8arul")
+bullet_node = ExtResource("12_u0duv")
+
+[node name="LaserBeam" type="Node2D" parent="FiniteStateMachine" node_paths=PackedStringArray("pivot")]
+script = ExtResource("12_3d2wm")
+pivot = NodePath("../../pivot")
+
+[node name="Dash" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("13_rrd6h")
+
+[node name="Death" type="Node2D" parent="FiniteStateMachine"]
+script = ExtResource("14_km2bi")
+
+[node name="DamageNumbersPosition" type="Node2D" parent="."]
+position = Vector2(34.3333, -64.3333)
+
+[connection signal="area_entered" from="pivot/LaserAttack" to="FiniteStateMachine/LaserBeam" method="attack_hit"]
+[connection signal="area_entered" from="MeleeAttack" to="FiniteStateMachine/MeleeAttack" method="attack_hit"]
+[connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]
+[connection signal="damaged" from="Hitbox" to="Health" method="on_damaged"]
