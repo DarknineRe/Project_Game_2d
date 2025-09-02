@@ -25,7 +25,6 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	hp_bar.hide()
 	difficulty()
-	print("%d Hp"%health.max_health)
 
 
 func on_damaged(attack: Attack) -> void:
@@ -35,5 +34,5 @@ func on_damaged(attack: Attack) -> void:
 	
 func difficulty():
 	var p = player
-	health.increase_max_health((p.exp_bar.level-1)* 20 + p.game_time - 1)
+	health.increase_max_health((p.exp_bar.level-1)* 10 + p.game_time - 1)
 	attack_node.damage_attack += p.exp_bar.level

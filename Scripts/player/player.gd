@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-signal respawned
+#signal respawned
 signal damaged(attack: Attack)
 
 var alive = true
@@ -98,7 +98,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if not alive:
-		_play_death_and_respawn()
+		#_play_death_and_respawn()
+		_play_death_and_gameover()
 		return
 		
 	if exp_bar.level < 100:
@@ -110,9 +111,10 @@ func _physics_process(_delta: float) -> void:
 
 func kill() -> void:
 	if alive:
-		_play_death_and_respawn()
+		#_play_death_and_respawn()
+		_play_death_and_gameover()
 
-func _play_death_and_respawn() -> void:
+"""func _play_death_and_respawn() -> void:
 	alive = false
 	anim.play("death")
 	await anim.animation_finished
@@ -123,7 +125,27 @@ func _play_death_and_respawn() -> void:
 	health_node.health = health_node.max_health
 	hp_bar.init_health(health_node.max_health)
 	hp_bar._set_health(health_node.max_health)
-	emit_signal("respawned")
+	emit_signal("respawned")"""
+func _play_death_and_gameover() -> void:
+	alive = false
+	anim.play("death")
+	await anim.animation_finished
+
+	# แสดงหน้าต่าง Game Over
+	show_game_over_screen()
+
+func show_game_over_screen() -> void:
+	#get_tree().paused = true
+	var game_over_scene = preload("res://UI/GameOver/game_over.tscn")  # ต้องมี Scene สำหรับ Game Over
+	var go_ui = game_over_scene.instantiate()
+	get_tree().current_scene.add_child(go_ui)
+	# คำนวณเวลาเป็น string
+	var minutes = int(game_time / 60)
+	var seconds = int(game_time) % 60
+	var time_string = "%02d:%02d" % [minutes, seconds]
+	# ส่งค่าเวลาไปที่ GameOver UI
+	if go_ui.has_method("set_final_time"):
+		go_ui.set_final_time(time_string)
 
 func on_damaged(attack: Attack) -> void:
 	stunned = true

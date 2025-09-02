@@ -606,6 +606,7 @@ script = ExtResource("14_h6470")
 target = NodePath("..")
 
 [node name="Level_Up" type="Button" parent="Camera2D"]
+visible = false
 offset_left = 116.0
 offset_top = -102.667
 offset_right = 898.0

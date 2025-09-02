@@ -20,11 +20,11 @@ atlas = ExtResource("1_sn7ge")
 region = Rect2(0, 640, 16, 16)
 
 [node name="UpgradePanel" type="Panel"]
-custom_minimum_size = Vector2(200, 250)
+custom_minimum_size = Vector2(250, 400)
 anchors_preset = -1
 anchor_bottom = 0.158951
-offset_right = 150.0
-offset_bottom = 200.0
+offset_right = 250.0
+offset_bottom = 197.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_q6t7t")
@@ -40,7 +40,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-custom_minimum_size = Vector2(70, 200)
+custom_minimum_size = Vector2(80, 250)
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
@@ -48,6 +48,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
 texture = SubResource("AtlasTexture_sn7ge")
 
