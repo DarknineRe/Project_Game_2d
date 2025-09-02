@@ -146,6 +146,7 @@ func show_game_over_screen() -> void:
 	# ส่งค่าเวลาไปที่ GameOver UI
 	if go_ui.has_method("set_final_time"):
 		go_ui.set_final_time(time_string)
+
 func on_damaged(attack: Attack) -> void:
 	stunned = true
 	damaged.emit(attack)

@@ -1,12 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://ck3ss0rfky61o"]
+[gd_scene load_steps=14 format=4 uid="uid://ck3ss0rfky61o"]
 
 [ext_resource type="Script" uid="uid://d2mqa5c7yjtbh" path="res://Scripts/game_manager.gd" id="1_2bu33"]
 [ext_resource type="PackedScene" uid="uid://cinnjayur6erf" path="res://Scene/player.tscn" id="1_e5k1s"]
 [ext_resource type="Resource" uid="uid://d1d2f6hwc241w" path="res://inventory/playerInventory.tres" id="3_vp4th"]
 [ext_resource type="Texture2D" uid="uid://chm637onughti" path="res://Art/Background/BackGround.png" id="5_ovyp7"]
 [ext_resource type="Texture2D" uid="uid://xkuang8bs5c1" path="res://Art/Background/RPGpack_sheet.png" id="6_np6x0"]
-[ext_resource type="PackedScene" uid="uid://b1w4r2o13aw3d" path="res://objects/gun object/pickables.tscn" id="9_kd2dw"]
-[ext_resource type="Resource" uid="uid://bhgr3h5kdd4ij" path="res://resources/weapon tres/guns tres/Old Rocket Launcher.tres" id="10_fp4eu"]
 [ext_resource type="PackedScene" uid="uid://btihsn66vl7j2" path="res://Scripts/inventory/InventoryUI.tscn" id="12_llyhm"]
 [ext_resource type="Script" uid="uid://22qj7qe1ccih" path="res://Scripts/inventory/canvas_layer.gd" id="12_vp4th"]
 [ext_resource type="PackedScene" uid="uid://dni73yy5fu3kf" path="res://Scripts/inventory/hotbar.tscn" id="15_m51ev"]
@@ -1115,7 +1113,3 @@ offset_bottom = -176.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
-
-[node name="Pickables" parent="." instance=ExtResource("9_kd2dw")]
-weapon = ExtResource("10_fp4eu")
-needs_update = true

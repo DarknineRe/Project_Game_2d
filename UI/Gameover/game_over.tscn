@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://r7ukel3ffq8t"]
 
-[ext_resource type="Script" path="res://UI/GameOver/game_over.gd" id="1_l4wb3"]
+[ext_resource type="Script" uid="uid://bpbaokty73w62" path="res://UI/Gameover/game_over.gd" id="1_l4wb3"]
 
 [node name="GameOver" type="Control"]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_l4wb3")
