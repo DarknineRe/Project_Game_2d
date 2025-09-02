@@ -1072,8 +1072,8 @@ script = ExtResource("1_2bu33")
 [node name="Player" parent="." node_paths=PackedStringArray("spawn_point") instance=ExtResource("1_e5k1s")]
 z_index = 1
 position = Vector2(-2.27374e-13, 1.81899e-12)
-inventory = ExtResource("3_vp4th")
 spawn_point = NodePath("../spawnpoint")
+inventory = ExtResource("3_vp4th")
 
 [node name="Map" type="Node2D" parent="."]
 
