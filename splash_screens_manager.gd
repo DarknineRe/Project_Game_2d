@@ -8,6 +8,8 @@ extends Control
 @export var out_time : float = 0.5
 @export var splash_screen_container : Node
 
+
+
 var splash_screens : Array
 var skipping := false   # Flag to detect skipping
 
