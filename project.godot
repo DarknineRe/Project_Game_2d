@@ -18,7 +18,7 @@ config/icon="uid://cxfmoi5m4wo8p"
 [autoload]
 
 DamageNumbers="*res://Global Load/DamageNumbers.gd"
-AudioManager="*res://Global Load/audio_manager.gd"
+AudioManager="*res://audio_manager.tscn"
 Drop="*res://Global Load/drop.gd"
 
 [display]
