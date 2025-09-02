@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdb4fjddc57ey"]
+[gd_scene load_steps=3 format=3 uid="uid://cdb4fjddc57ey"]
 
 [ext_resource type="Script" uid="uid://bfc0atikgasp2" path="res://Global Load/audio_manager.gd" id="1_jisk1"]
+[ext_resource type="AudioStream" uid="uid://b0krjuh8a8mot" path="res://Art/Music/bgm/2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" id="2_bq1v2"]
 
 [node name="Audio_Manager" type="Node"]
 script = ExtResource("1_jisk1")
@@ -19,4 +20,6 @@ script = ExtResource("1_jisk1")
 
 [node name="Enemy_Hurt" type="AudioStreamPlayer" parent="."]
 
-[node name="BGM" type="AudioStreamPlayer" parent="."]
+[node name="Main_BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bq1v2")
+playback_type = 1

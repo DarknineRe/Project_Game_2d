@@ -13,19 +13,19 @@ var loot_tables := {
 		{
 			"type": "resource", 
 			"item": preload("res://resources/weapon tres/guns tres/sniper_rifle.tres"), 
-			"chance": 0.001},
+			"chance": 0.01},
 		{
 			"type": "resource", 
 			"item": preload("res://resources/weapon tres/guns tres/Arbitrator.tres"), 
-			"chance": 0.001},
+			"chance": 0.01},
 		{
 			"type": "resource", 
 			"item": preload("res://resources/weapon tres/guns tres/bad_pistol.tres"), 
-			"chance": 0.001},
+			"chance": 0.01},
 			{
 			"type": "resource", 
 			"item": preload("res://resources/weapon tres/guns tres/Old Rocket Launcher.tres"), 
-			"chance": 0.001}
+			"chance": 0.01}
 	],
 
 	"boss": [
