@@ -142,6 +142,13 @@ func show_game_over_screen() -> void:
 	var game_over_scene = preload("res://UI/GameOver/game_over.tscn")  # ต้องมี Scene สำหรับ Game Over
 	var go_ui = game_over_scene.instantiate()
 	get_tree().current_scene.add_child(go_ui)
+	# คำนวณเวลาเป็น string
+	var minutes = int(game_time / 60)
+	var seconds = int(game_time) % 60
+	var time_string = "%02d:%02d" % [minutes, seconds]
+	# ส่งค่าเวลาไปที่ GameOver UI
+	if go_ui.has_method("set_final_time"):
+		go_ui.set_final_time(time_string)
 
 func on_damaged(attack: Attack) -> void:
 	stunned = true
