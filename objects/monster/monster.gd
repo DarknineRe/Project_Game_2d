@@ -25,7 +25,6 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	hp_bar.hide()
 	difficulty()
-	print("%d Hp"%health.max_health)
 
 
 func on_damaged(attack: Attack) -> void:

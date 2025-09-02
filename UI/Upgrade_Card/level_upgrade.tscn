@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b2rt1qkvjp0y2"]
+[gd_scene load_steps=56 format=3 uid="uid://b2rt1qkvjp0y2"]
 
 [ext_resource type="Script" uid="uid://cg87yvwiipiq" path="res://UI/Upgrade_Card/level_upgrade.gd" id="1_0p84y"]
 [ext_resource type="PackedScene" uid="uid://bcrnweqc8k1ff" path="res://UI/Upgrade_Card/upgrade_panel.tscn" id="2_7fetl"]
@@ -54,7 +54,7 @@ damage_add = 0.0
 speed_add = 0.0
 speed_mult = 1.0
 lifetime_add = 0.0
-crit_chance_add = 1.0
+crit_chance_add = 2.0
 crit_chance_mult = 1.0
 crit_mult_add = 0.0
 crit_mult_mult = 1.0
@@ -62,7 +62,7 @@ max_pierce_add = 0
 fire_rate_add = 0.0
 fire_rate_mult = 1.0
 texture = SubResource("AtlasTexture_n47hl")
-description = "+ 1 Bullet Crit Chance"
+description = "+ 2 Bullet Crit Chance"
 metadata/_custom_type_script = "uid://dtubmh57j3wkd"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gfgj"]
@@ -321,28 +321,6 @@ texture = SubResource("AtlasTexture_0wda0")
 description = "+ 100 speed"
 metadata/_custom_type_script = "uid://b580bq1ggooop"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2eb3t"]
-atlas = ExtResource("5_xw3mv")
-region = Rect2(160, 624, 16, 16)
-
-[sub_resource type="Resource" id="Resource_irus6"]
-script = ExtResource("6_xw3mv")
-health_add = 0.0
-health_mult = 1.0
-speed_add = 0.0
-speed_mult = 1.0
-sprint_mult_add = 0.0
-sprint_mult_mult = 1.0
-dash_mult_add = 0.0
-dash_mult_mult = 1.0
-stamina_add = 10.0
-stamina_mult = 1.0
-dash_cost_add = 0.0
-dash_cost_mult = 1.0
-texture = SubResource("AtlasTexture_2eb3t")
-description = "+ 10 Player Stamina"
-metadata/_custom_type_script = "uid://b580bq1ggooop"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_88c1t"]
 atlas = ExtResource("5_xw3mv")
 region = Rect2(0, 1072, 16, 16)
@@ -529,7 +507,7 @@ common_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_rr
 rare_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_6gfgj"), SubResource("Resource_wvcbj"), SubResource("Resource_r0du2"), SubResource("Resource_fytlp")])
 epic_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_ahlcf"), SubResource("Resource_e8mro"), SubResource("Resource_umy0c"), SubResource("Resource_6nhip")])
 legendary_bullet_upgrades = Array[ExtResource("3_0p84y")]([SubResource("Resource_428hx"), SubResource("Resource_caupf"), SubResource("Resource_0wda0")])
-common_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_7fetl"), SubResource("Resource_88c1t"), SubResource("Resource_irus6")])
+common_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_7fetl"), SubResource("Resource_88c1t")])
 rare_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_xw3mv"), SubResource("Resource_7ant0")])
 epic_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3j34n"), SubResource("Resource_2eb3t"), SubResource("Resource_g727y")])
 legendary_player_upgrades = Array[ExtResource("5_7fetl")]([SubResource("Resource_3ivco"), SubResource("Resource_n47hl"), SubResource("Resource_fd63u")])
