@@ -639,7 +639,6 @@ theme_override_styles/background = SubResource("StyleBoxEmpty_kai0q")
 theme_override_styles/fill = SubResource("StyleBoxFlat_wxvsy")
 step = 1.0
 script = ExtResource("10_wxvsy")
-timer2 = 1.0
 StaminaNode = NodePath("../../Player_Movement")
 
 [node name="Level" type="Label" parent="Camera2D"]

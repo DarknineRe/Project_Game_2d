@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3pwjnoxr6qgk"]
 
-[ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/laser bullet/normal bullet/normal_bullet_type.tscn" id="1_17bi2"]
+[ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/normal bullet/normal_bullet_type.tscn" id="1_17bi2"]
 [ext_resource type="Texture2D" uid="uid://bnm0dkq0iv051" path="res://Art/weapon/Arrow.png" id="2_jgvsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om02t"]
