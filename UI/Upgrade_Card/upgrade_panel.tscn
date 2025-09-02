@@ -48,6 +48,7 @@ theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
 texture = SubResource("AtlasTexture_sn7ge")
 
