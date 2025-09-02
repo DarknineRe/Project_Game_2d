@@ -20,6 +20,7 @@ var spawn_timer := 0.0
 func _ready() -> void:
 	spawnpoint.position = Vector2.ZERO
 	player.spawn_point = spawnpoint
+	AudioManager.bgm.play()
 
 func _process(delta: float) -> void:
 	spawn_timer -= delta

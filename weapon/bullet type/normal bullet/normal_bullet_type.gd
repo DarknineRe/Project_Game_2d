@@ -6,6 +6,7 @@ var current_pierce_count := 0
 var direction: Vector2
 
 func _ready() -> void:
+	AudioManager.shoot_bullet.play()
 	# direction from rotation
 	direction = Vector2.RIGHT.rotated(rotation).normalized()
 

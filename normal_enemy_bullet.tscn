@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3pwjnoxr6qgk"]
+[gd_scene load_steps=6 format=3 uid="uid://d3pwjnoxr6qgk"]
 
 [ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/normal bullet/normal_bullet_type.tscn" id="1_17bi2"]
 [ext_resource type="Texture2D" uid="uid://bnm0dkq0iv051" path="res://Art/weapon/Arrow.png" id="2_jgvsu"]
+[ext_resource type="Script" uid="uid://bsrytj4jqk06b" path="res://normal_enemy_bullet.gd" id="2_om02t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_om02t"]
 size = Vector2(17.6667, 2.33333)
@@ -10,6 +11,7 @@ size = Vector2(17.6667, 2.33333)
 size = Vector2(20, 3.66667)
 
 [node name="NormalEnemyBullet" instance=ExtResource("1_17bi2")]
+script = ExtResource("2_om02t")
 
 [node name="Sprite2D" parent="." index="0"]
 scale = Vector2(1.2, 1.2)

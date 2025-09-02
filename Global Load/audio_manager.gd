@@ -1,6 +1,6 @@
 extends Node
 
-@onready var shoot_bullet = $Shoot_Bullet
+@onready var shoot_bullet = $Shoot_Normal_Bullet
 @onready var Dash = $Dash
 @onready var sword_attack = $Sword_Attack
 @onready var shoot_bullet_laser = $Shoot_Bullet_Laser
@@ -8,3 +8,5 @@ extends Node
 @onready var player_hurt = $Player_Hurt
 @onready var enemy_hurt = $Enemy_Hurt
 @onready var main_bgm = $Main_BGM
+@onready var bgm = $BGM
+@onready var exlosion_bullet = $Shoot_Explosion_Bullet

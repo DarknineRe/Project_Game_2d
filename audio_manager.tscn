@@ -1,18 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdb4fjddc57ey"]
+[gd_scene load_steps=7 format=3 uid="uid://cdb4fjddc57ey"]
 
 [ext_resource type="Script" uid="uid://bfc0atikgasp2" path="res://Global Load/audio_manager.gd" id="1_jisk1"]
 [ext_resource type="AudioStream" uid="uid://b0krjuh8a8mot" path="res://Art/Music/bgm/2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" id="2_bq1v2"]
+[ext_resource type="AudioStream" uid="uid://cgdugaa8jv7w0" path="res://Art/Music/sfx/086409_retro-gun-shot-81545.mp3" id="2_l2k84"]
+[ext_resource type="AudioStream" uid="uid://dtj3rmi2ickj6" path="res://Art/Music/bgm/Malkuth battle 1,2.mp3" id="3_6jj5d"]
+[ext_resource type="AudioStream" uid="uid://d3t3jbu4q1ehl" path="res://Art/Music/sfx/gun-shot-sound-effect-224087.mp3" id="3_l55mp"]
+[ext_resource type="AudioStream" uid="uid://ckk0b63fx5hps" path="res://Art/Music/sfx/laser-gun-81720.mp3" id="4_l2k84"]
 
 [node name="Audio_Manager" type="Node"]
 script = ExtResource("1_jisk1")
 
-[node name="Shoot_Bullet" type="AudioStreamPlayer" parent="."]
+[node name="Shoot_Normal_Bullet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_l2k84")
+
+[node name="Shoot_Explosion_Bullet" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_l55mp")
+
+[node name="Shoot_Bullet_Laser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l2k84")
 
 [node name="Dash" type="AudioStreamPlayer" parent="."]
 
 [node name="Sword_Attack" type="AudioStreamPlayer" parent="."]
-
-[node name="Shoot_Bullet_Laser" type="AudioStreamPlayer" parent="."]
 
 [node name="Level_Up" type="AudioStreamPlayer" parent="."]
 
@@ -23,3 +32,6 @@ script = ExtResource("1_jisk1")
 [node name="Main_BGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_bq1v2")
 playback_type = 1
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6jj5d")

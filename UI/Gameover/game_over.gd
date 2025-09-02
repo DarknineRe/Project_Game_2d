@@ -16,6 +16,7 @@ func _on_restart_buttum_pressed():
 	get_tree().change_scene_to_file("res://Scene/game_manager.tscn")
 	
 func _on_gomain_buttum_pressed():
+	AudioManager.bgm.stop()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://main_scene.tscn")
 

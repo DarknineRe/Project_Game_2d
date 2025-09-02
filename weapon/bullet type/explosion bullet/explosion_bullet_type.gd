@@ -29,6 +29,7 @@ func on_enemy_hit():
 		explosion()
 
 func explosion():
+	AudioManager.exlosion_bullet.play()
 	anim.play("Explosion")
 	await anim.animation_finished
 	queue_free()

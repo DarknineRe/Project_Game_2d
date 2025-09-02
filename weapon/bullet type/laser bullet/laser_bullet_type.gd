@@ -6,6 +6,7 @@ extends Bullet
 
 
 func _ready():
+	AudioManager.shoot_bullet_laser.play()
 	line.width = get_beam_width()
 	line.clear_points()
 	line.add_point(Vector2.ZERO)
