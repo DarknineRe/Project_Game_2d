@@ -7,7 +7,10 @@ func enter():
 	super.enter()
 	animation_player.play("ranged_attack")
 	await animation_player.animation_finished
-	shoot()
+	for i in 8:
+		shoot()
+		await get_tree().create_timer(0.1).timeout
+
 	can_transition = true
  
 func shoot():
@@ -15,6 +18,7 @@ func shoot():
 	bullet.damage = boss.attack_damage * 0.5
 	bullet.speed = boss.attack_damage * 10
 	bullet.position = owner.position
+	bullet.rotation = randf()
 	get_tree().current_scene.add_child(bullet)
  
 func transition():

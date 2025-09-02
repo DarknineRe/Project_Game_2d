@@ -1155,4 +1155,4 @@ grow_vertical = 0
 size_flags_vertical = 8
 
 [node name="Boss" parent="." instance=ExtResource("9_l0m7i")]
-position = Vector2(-1479, -216)
+position = Vector2(-2901, -39)
