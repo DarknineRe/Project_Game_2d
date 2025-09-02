@@ -10,3 +10,4 @@ extends Node
 @onready var main_bgm = $Main_BGM
 @onready var bgm = $BGM
 @onready var exlosion_bullet = $Shoot_Explosion_Bullet
+@onready var shoot_arrow = $Shoot_Arrow

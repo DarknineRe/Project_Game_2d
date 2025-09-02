@@ -7,6 +7,7 @@ var direction: Vector2
 
 func _ready() -> void:
 	# direction from rotation
+	AudioManager.shoot_arrow.play()
 	direction = Vector2.RIGHT.rotated(rotation).normalized()
 
 	# auto destroy
