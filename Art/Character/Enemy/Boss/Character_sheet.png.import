@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://bwgp0o3pft4sf"
-=======
-uid="uid://b4ynjo38fhl5s"
->>>>>>> Stashed changes
-path="res://.godot/imported/arm_projectile.png-016ffd612be7d9a10382f12e1d63be2f.ctex"
+uid="uid://cwhbvx3y4c2yd"
+path="res://.godot/imported/Character_sheet.png-e1a734035adfc75b3a47d2129a801d46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Character/Enemy/Boss/arm_projectile.png"
-dest_files=["res://.godot/imported/arm_projectile.png-016ffd612be7d9a10382f12e1d63be2f.ctex"]
+source_file="res://Art/Character/Enemy/Boss/Character_sheet.png"
+dest_files=["res://.godot/imported/Character_sheet.png-e1a734035adfc75b3a47d2129a801d46.ctex"]
 
 [params]
 

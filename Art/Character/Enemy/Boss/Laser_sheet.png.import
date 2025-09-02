@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://ca5uh6h2cvt8b"
+=======
+uid="uid://birqk3iki6fgx"
+>>>>>>> Stashed changes
 path="res://.godot/imported/Laser_sheet.png-54b64402a20f91439810e807780e6123.ctex"
 metadata={
 "vram_texture": false
