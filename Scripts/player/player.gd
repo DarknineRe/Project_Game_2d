@@ -4,7 +4,7 @@ extends CharacterBody2D
 #signal respawned
 signal damaged(attack: Attack)
 
-var alive = true
+var alive :bool = true
 var is_running = false
 var has_weapon = false
 var aim_position: Vector2 = Vector2(1, 0)
