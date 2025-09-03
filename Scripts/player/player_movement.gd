@@ -25,7 +25,7 @@ var is_dashing = false
 @export var dash_stamina_cost = 20.0
 
 func _physics_process(delta: float) -> void:
-	if not player.alive:
+	if !player.alive:
 		return
 
 	var input_vector = Input.get_vector("left", "right", "up", "down")

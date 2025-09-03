@@ -4,7 +4,7 @@ extends Node
 @export var player : Player 
 
 func _physics_process(_delta: float) -> void:
-	if player.alive == false:
+	if !player.alive:
 		return
 	
 	var anim_name : String = ""
