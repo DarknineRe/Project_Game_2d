@@ -35,3 +35,5 @@
 
 ใช้เมาส์ในการคลิกเลือกเมนูต่างๆในเกมรวมถึงการลากเมาส์เพื่อควบคุมทิศทางปืนที่จะยิง การคลิกซ้ายสามารถปล่อยการโจมตีได้
 
+https://bdragon1727.itch.io/fire-pixel-bullet-16x16
+https://elvgames.itch.io/free-inventory-asset-pack
