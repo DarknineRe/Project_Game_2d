@@ -13,7 +13,7 @@ func set_final_time(time_string: String) -> void:
 
 func _on_restart_buttum_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scene/game_manager.tscn")
+	get_tree().reload_current_scene()
 	
 func _on_gomain_buttum_pressed():
 	AudioManager.bgm.stop()
