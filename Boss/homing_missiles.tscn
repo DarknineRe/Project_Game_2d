@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcyl3ccg05fuo"]
 
 [ext_resource type="PackedScene" uid="uid://cj3qwyjxcjom" path="res://weapon/bullet type/normal bullet/normal_bullet_type.tscn" id="1_1gr3v"]
-[ext_resource type="Script" path="res://homing_bullet.gd" id="2_hnscc"]
+[ext_resource type="Script" path="res://Boss/homing_bullet.gd" id="2_hnscc"]
 [ext_resource type="Texture2D" uid="uid://xom1xn1toesx" path="res://Art/Character/Enemy/Boss/arm_projectile.png" id="2_ocplv"]
 
 [node name="HomingMissiles" instance=ExtResource("1_1gr3v")]

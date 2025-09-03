@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bpr0vml6quw7g" path="res://UI/Pause Menu/pause_menu.gd" id="1_nwcfo"]
 [ext_resource type="Shader" uid="uid://deqi7g0o7q0e" path="res://UI/Pause Menu/pause_menu.gdshader" id="2_05uyy"]
 [ext_resource type="Texture2D" uid="uid://jm3csc1ki7q2" path="res://Art/Font/icons8-menu-50 (1).png" id="2_p81d2"]
-[ext_resource type="PackedScene" uid="uid://b4ie6rl6k8udx" path="res://setting_menu.tscn" id="4_q706g"]
+[ext_resource type="PackedScene" uid="uid://b4ie6rl6k8udx" path="res://UI/setting_menu.tscn" id="4_q706g"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p81d2"]
 shader = ExtResource("2_05uyy")

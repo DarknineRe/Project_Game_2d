@@ -17,7 +17,7 @@ func enter():
 
 func shoot_arrow():
 	
-	var arrow = preload("res://normal_enemy_bullet.tscn").instantiate()
+	var arrow = preload("res://weapon/bullet type/enemy bullet/normal_enemy_bullet.tscn").instantiate()
 	
 	arrow.damage = damage_attack
 	

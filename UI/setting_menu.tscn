@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b4ie6rl6k8udx"]
 
-[ext_resource type="Script" uid="uid://dbpdsnma125fg" path="res://setting_menu.gd" id="1_3iptn"]
+[ext_resource type="Script" uid="uid://dbpdsnma125fg" path="res://UI/setting_menu.gd" id="1_fcbfh"]
 
 [node name="Setting_Menu" type="Control"]
 z_index = 10
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("1_3iptn")
+script = ExtResource("1_fcbfh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -10
