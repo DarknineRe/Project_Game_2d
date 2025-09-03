@@ -17,6 +17,7 @@ var friction := 400.0
 var texture_small = preload("res://Art/weapon/bullet.png")       # 1 EXP
 var texture_medium = preload("res://Art/weapon/bullet_blue.png") # 5 EXP
 var texture_large = preload("res://Art/weapon/bullet_purple.png")# 10 EXP
+var texture_super_larger = preload("res://Art/weapon/Bullet_Green.png") # 50 EXP
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") 
@@ -66,5 +67,7 @@ func _update_texture() -> void:
 		sprite.texture = texture_small
 	elif experience <= 5:
 		sprite.texture = texture_medium
-	else:
+	elif experience <= 10:
 		sprite.texture = texture_large
+	else:
+		sprite.texture = texture_super_larger

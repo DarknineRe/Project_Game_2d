@@ -8,17 +8,13 @@ func enter():
 	await animation_player.animation_finished
 	owner.queue_free()
 	
-	var total_exp = randi() % 100
+	var total_exp = randi() % 50 + 1
 	Drop.drop_item(boss.global_position)
-	while total_exp >= 10:
-		_spawn_orb(10)
-		total_exp -= 10
-	while total_exp >= 5:
-		_spawn_orb(5)
-		total_exp -= 5
-	while total_exp >= 1:
-		_spawn_orb(1)
-		total_exp -= 1
+	var values = [50, 10, 5, 1]
+	for v in values:
+		while total_exp >= v:
+			_spawn_orb(v)
+			total_exp -= v
 
 func _spawn_orb(exp_value: int) -> void:
 	var orb = ExpOrbScene.instantiate()

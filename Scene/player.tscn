@@ -679,22 +679,13 @@ scale = Vector2(0.2, 0.2)
 mouse_filter = 2
 
 [node name="Timer" type="Label" parent="Camera2D"]
-offset_left = 130.167
-offset_top = -96.3333
-offset_right = 509.167
-offset_bottom = 53.6667
+offset_left = 73.1667
+offset_top = -95.8334
+offset_right = 452.167
+offset_bottom = 54.1666
 scale = Vector2(0.08, 0.08)
 theme_override_font_sizes/font_size = 150
 text = "0.00"
-
-[node name="Score" type="Label" parent="Camera2D"]
-offset_left = -7.0
-offset_top = -96.0
-offset_right = 630.0
-offset_bottom = 54.0
-scale = Vector2(0.08, 0.08)
-theme_override_font_sizes/font_size = 150
-text = "Score : "
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(-0.166667, 5)

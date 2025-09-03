@@ -6,6 +6,7 @@ extends Bullet
 @onready var impact_particles: CPUParticles2D = $ImpactParticles
 
 func _ready():
+	AudioManager.shoot_bullet_laser.play()
 	# Beam setup
 	line.width = get_beam_width()
 	line.texture = _make_gradient_texture()

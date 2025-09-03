@@ -23,6 +23,7 @@ var boss_timer := 0.0
 var spawn_timer := 0.0
 
 func _ready() -> void:
+	AudioManager.bgm.play()
 	spawnpoint.position = Vector2.ZERO
 	player.spawn_point = spawnpoint
 	spawn_timer = spawn_interval
