@@ -7,7 +7,7 @@ extends Node2D
 	preload("res://Scene/monster_archer.tscn"),
 	preload("res://Scene/monster.tscn")
 ]
-@export var spawn_mark_scene: PackedScene = preload("res://scene/spawn_mark.tscn")
+@export var spawn_mark_scene: PackedScene = preload("res://Scene/spawn_mark.tscn")
 @export var spawn_radius: float = 1000.0
 @export var min_spawn_distance: float = 100.0
 @export var spawn_interval: float = 3.0
@@ -15,7 +15,7 @@ extends Node2D
 @export var spawn_delay: float = 1.5   # time to show mark before monster spawns
 
 # Boss settings
-@export var boss_scene: PackedScene = preload("res://Boss/boss.tscn")
+@export var boss_scene: PackedScene = load("res://Boss/boss.tscn")
 @export var boss_spawn_interval: float = 120.0   # 2 minutes
 @export var boss_spawn_delay: float = 2.5        # can be longer than regular monster
 var boss_timer := 0.0

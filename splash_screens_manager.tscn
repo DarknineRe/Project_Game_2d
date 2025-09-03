@@ -59,6 +59,7 @@ theme_override_font_sizes/font_size = 100
 text = "Present"
 
 [node name="Label2" type="Label" parent="CenterContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Bulletbound"

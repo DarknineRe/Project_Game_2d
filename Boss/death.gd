@@ -1,6 +1,6 @@
 extends BossState
  
-var ExpOrbScene = preload("res://scene/exp.tscn")
+var ExpOrbScene = preload("res://Scene/exp.tscn")
 
 func enter():
 	super.enter()

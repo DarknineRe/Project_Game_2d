@@ -1,6 +1,6 @@
 extends MonsterState
 
-var ExpOrbScene = preload("res://scene/exp.tscn")
+var ExpOrbScene = preload("res://Scene/exp.tscn")
 
 func enter():
 	var total_exp = randi() % 16 + 10  # 10–25 EXP

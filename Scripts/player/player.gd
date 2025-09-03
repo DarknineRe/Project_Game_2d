@@ -26,7 +26,7 @@ var game_time := 0.0
 @onready var timer = $Camera2D/Timer
 # inventory
 @export var inventory: Inventory
-@export var default_weapon: Weapon = preload("res://Scripts/inventory/WeaponEmpty.tres")
+@export var default_weapon: Weapon
 
 func _ready() -> void:
 	hp_bar.init_health(health_node.max_health)
@@ -125,7 +125,7 @@ func _play_death_and_gameover() -> void:
 
 func show_game_over_screen() -> void:
 	#get_tree().paused = true
-	var game_over_scene = preload("res://UI/GameOver/game_over.tscn")  # ต้องมี Scene สำหรับ Game Over
+	var game_over_scene = load("res://UI/Gameover/game_over.tscn")  # ต้องมี Scene สำหรับ Game Over
 	var go_ui = game_over_scene.instantiate()
 	get_tree().current_scene.add_child(go_ui)
 	# คำนวณเวลาเป็น string
