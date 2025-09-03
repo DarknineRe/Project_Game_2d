@@ -27,6 +27,9 @@ var game_time := 0.0
 # inventory
 @export var inventory: Inventory
 @export var default_weapon: Weapon = preload("res://Scripts/inventory/WeaponEmpty.tres")
+var score_timer := 0.0
+var score: int = 0
+@onready var score_label = $Camera2D/ScoreLabel
 
 func _ready() -> void:
 	hp_bar.init_health(health_node.max_health)
@@ -50,9 +53,18 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if alive: # only count while player is alive
+	"""if alive: # only count while player is alive
 		game_time += delta
+		_update_timer_label()"""
+	if alive:
+		game_time += delta
+		score_timer += delta
 		_update_timer_label()
+		
+		# ทุกๆ 1 วิ +10 คะแนน
+		if score_timer >= 1.0:
+			add_score(1)
+			score_timer = 0.0
 
 
 func _update_timer_label() -> void:
@@ -143,9 +155,10 @@ func show_game_over_screen() -> void:
 	var minutes = int(game_time / 60)
 	var seconds = int(game_time) % 60
 	var time_string = "%02d:%02d" % [minutes, seconds]
-	# ส่งค่าเวลาไปที่ GameOver UI
-	if go_ui.has_method("set_final_time"):
-		go_ui.set_final_time(time_string)
+
+	# ส่งค่าเวลา + Score ไปที่ GameOver UI
+	if go_ui.has_method("set_final_results"):
+		go_ui.set_final_results(time_string, score)
 
 func on_damaged(attack: Attack) -> void:
 	stunned = true
@@ -194,3 +207,10 @@ func _on_level_up_pressed() -> void:
 	if exp_bar.level < 100: # Prevent going beyond max
 		exp_bar.level += 1
 		_on_level_up(exp_bar.level)
+
+func add_score(amount: int) -> void:
+	score += amount
+	_update_score_label()
+func _update_score_label() -> void:
+	score_label.text = "Score: %d" % score
+	

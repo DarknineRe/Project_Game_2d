@@ -17,7 +17,8 @@ var knockback_velocity: Vector2 = Vector2.ZERO
 
 @onready var health: Health = $Health
 @onready var hp_bar:= $Hpbar
-@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
+#@onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
+@onready var player: Player = get_tree().get_first_node_in_group("Player") as Player
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_number_position = $DamageNumbersPosition
 @onready var attack_node := $MonsterStateMachine/Attack
@@ -36,3 +37,8 @@ func difficulty():
 	var p = player
 	health.increase_max_health((p.exp_bar.level-1)* 10 + p.game_time - 1)
 	attack_node.damage_attack += p.exp_bar.level
+
+func give_score_to_player(score_amount: int) -> void:
+	var p = get_tree().get_first_node_in_group("Player") as Player
+	if p:
+		p.add_score(score_amount)

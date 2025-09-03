@@ -33,25 +33,33 @@ offset_bottom = 257.0
 theme_override_font_sizes/font_size = 48
 text = "Time Survived: 00:00"
 
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 427.0
+offset_top = 276.0
+offset_right = 711.0
+offset_bottom = 337.0
+theme_override_font_sizes/font_size = 48
+text = "Score: 000"
+
 [node name="Restart_Buttum" type="Button" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -96.0
-offset_top = -366.0
-offset_right = 82.0
-offset_bottom = -268.0
+offset_left = -99.0
+offset_top = -294.0
+offset_right = 79.0
+offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Restart"
 
 [node name="Gomain_Buttum" type="Button" parent="CanvasLayer"]
 offset_left = 473.0
-offset_top = 411.0
+offset_top = 474.0
 offset_right = 667.0
-offset_bottom = 490.0
+offset_bottom = 553.0
 text = "Go Main"
 
 [connection signal="pressed" from="CanvasLayer/Restart_Buttum" to="." method="_on_restart_buttum_pressed"]
