@@ -245,6 +245,7 @@ shape = SubResource("RectangleShape2D_ga5te")
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hitbox")]
 script = ExtResource("4_3b4da")
+max_health = 50.0
 hitbox = NodePath("../Monster_HurtboxArea")
 
 [node name="Monster_Animation" type="Node" parent="." node_paths=PackedStringArray("anim", "sprite")]

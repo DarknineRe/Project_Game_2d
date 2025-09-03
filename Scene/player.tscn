@@ -679,10 +679,10 @@ scale = Vector2(0.2, 0.2)
 mouse_filter = 2
 
 [node name="Timer" type="Label" parent="Camera2D"]
-offset_left = 73.1667
-offset_top = -95.8334
-offset_right = 452.167
-offset_bottom = 54.1666
+offset_left = 131.0
+offset_top = -102.833
+offset_right = 510.0
+offset_bottom = 47.1667
 scale = Vector2(0.08, 0.08)
 theme_override_font_sizes/font_size = 150
 text = "0.00"

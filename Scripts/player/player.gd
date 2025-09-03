@@ -114,19 +114,8 @@ func kill() -> void:
 		#_play_death_and_respawn()
 		_play_death_and_gameover()
 
-"""func _play_death_and_respawn() -> void:
-	alive = false
-	anim.play("death")
-	await anim.animation_finished
-
-	await get_tree().create_timer(0.1).timeout
-	global_position = spawn_point.global_position
-	alive = true
-	health_node.health = health_node.max_health
-	hp_bar.init_health(health_node.max_health)
-	hp_bar._set_health(health_node.max_health)
-	emit_signal("respawned")"""
 func _play_death_and_gameover() -> void:
+	AudioManager.bgm.stop()
 	alive = false
 	anim.play("death")
 	await anim.animation_finished
